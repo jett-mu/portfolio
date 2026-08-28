@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GTFS.JETTM.DEV — System Map</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <svg class="hero-map" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice">
+    <path d="M -50 680 C 300 680, 380 520, 620 520 S 900 300, 1150 300 S 1500 120, 1700 120" stroke="#D6432B" stroke-width="6" fill="none"></path>
+    <path d="M -50 220 C 250 220, 340 420, 600 420 S 950 620, 1200 620 S 1450 780, 1700 780" stroke="#2B5FAD" stroke-width="6" fill="none"></path>
+    <path d="M -50 460 L 1700 460" stroke="#2F7B4F" stroke-width="6" fill="none"></path>
+    <path d="M 400 -50 L 400 950 M 1050 -50 L 1050 950" stroke="#E8A93B" stroke-width="6" fill="none"></path>
+    <circle cx="620" cy="520" r="12" fill="#FAFAF7" stroke="#1A1A1A" stroke-width="4"></circle>
+    <circle cx="1150" cy="300" r="12" fill="#FAFAF7" stroke="#1A1A1A" stroke-width="4"></circle>
+    <circle cx="400" cy="460" r="12" fill="#FAFAF7" stroke="#1A1A1A" stroke-width="4"></circle>
+    <circle cx="1050" cy="620" r="12" fill="#FAFAF7" stroke="#1A1A1A" stroke-width="4"></circle>
+  </svg>
+  <div class="hero-kicker">GTFS.JETTM.DEV — SYSTEM MAP</div>
+  <div class="hero-title">GTFS.JETTM.DEV</div>
+  <div class="hero-sub">Real transit data, parsed and served, down to the minute.</div>
+  <div class="hero-track">
+    <div class="hero-track-dot"></div>
+  </div>
+</div>
+
+<!-- BACKGROUND: WHAT IS GTFS -->
+<div class="section">
+  <div class="section-rail rail-ink"></div>
+  <div class="section-body">
+    <div class="eyebrow" style="opacity:0.6;">WHAT IS GTFS</div>
+    <div class="heading">The standard,<br>parsed properly</div>
+    <p>
+      <a href="https://gtfs.org/documentation/schedule/reference/" target="_blank" rel="noopener" style="font-weight:600;">GTFS</a> (General Transit Feed Specification) is the standard transit agencies use worldwide to publish schedule and live vehicle data — the same format behind Google Maps and most trip planners. This project parses it directly: no database, no caching layer, just a C++ library scanning the raw <a href="https://github.com/google/transit" target="_blank" rel="noopener">GTFS Schedule</a> <span style="font-family:'IBM Plex Mono',monospace;">.txt</span> tables and GTFS Realtime <span style="font-family:'IBM Plex Mono',monospace;">.pb</span> protobuf feeds and answering queries straight off them.
+    </p>
+    <div class="data-list">
+      <div class="data-row">
+        <div class="data-row-label">STATIC-GTFS</div>
+        <div class="data-row-desc">gtfs.hpp — a single ~1,900-line C++17 header, zero external deps. Parses routes, stops, trips, calendars, shapes and fares straight from GTFS Schedule .txt files.</div>
+      </div>
+      <div class="data-row">
+        <div class="data-row-label">GTFS-RT</div>
+        <div class="data-row-desc">C++ tools built on protobuf that decode GTFS Realtime .pb feeds — trip updates, vehicle positions, service alerts — into JSON.</div>
+      </div>
+      <div class="data-row">
+        <div class="data-row-label">WEBSERVER</div>
+        <div class="data-row-desc">A Flask app that shells out to the compiled C++ tools and serves a vanilla-JS frontend as a REST API. Ships a token-gated variant for exposing it beyond localhost.</div>
+      </div>
+      <div class="data-row">
+        <div class="data-row-label">VERSIONS</div>
+        <div class="data-row-desc">v1.8.0 stable — reorganized into gtfs.hpp, JSON GTFS-RT output. v3.0 beta — this HTML/JS GUI over Flask.</div>
+      </div>
+    </div>
+    <div class="tag-list">
+      <div class="tag">C++17</div>
+      <div class="tag">PYTHON 3 + FLASK</div>
+      <div class="tag">PROTOBUF + PKG-CONFIG (RT ONLY)</div>
+      <div class="tag">GIT</div>
+    </div>
+  </div>
+</div>
+
+<!-- STATION: STOP LOOKUP -->
+<div class="section">
+  <div class="section-rail rail-red"></div>
+  <div class="two-col">
+    <div>
+      <div class="eyebrow" style="color:#D6432B;">STOP LOOKUP</div>
+      <div class="heading">When's the<br>next one</div>
+      <p>Search a stop by name or ID, pick a date, see upcoming departures. Merge stops across an intersection into one combined list.</p>
+    </div>
+    <div class="station-card">
+      <div class="stop-card-header">
+        <svg width="60" height="14" viewBox="0 0 60 14"><line x1="2" y1="7" x2="58" y2="7" stroke="#D6432B" stroke-width="3"></line><circle cx="2" cy="7" r="4" fill="#D6432B"></circle><circle cx="58" cy="7" r="4" fill="#D6432B"></circle></svg>
+        <div class="stop-card-header-label">STP-4471 · MAIN ST &amp; 5TH AVE</div>
+      </div>
+
+      <div class="stop-row">
+        <div class="stop-row-route" style="background:#D6432B;">12</div>
+        <div class="stop-row-dest">Downtown Loop</div>
+        <div class="stop-row-time">14:32</div>
+        <div class="stop-row-delay" style="background:#2F7B4F;color:#FAFAF7;">ON TIME</div>
+      </div>
+      <div class="stop-row">
+        <div class="stop-row-route" style="background:#2B5FAD;">4</div>
+        <div class="stop-row-dest">Riverside</div>
+        <div class="stop-row-time">14:41</div>
+        <div class="stop-row-delay" style="background:#E8A93B;color:#1A1A1A;">+3 MIN</div>
+      </div>
+      <div class="stop-row">
+        <div class="stop-row-route" style="background:#D6432B;">12</div>
+        <div class="stop-row-dest">Downtown Loop</div>
+        <div class="stop-row-time">14:47</div>
+        <div class="stop-row-delay" style="background:#2F7B4F;color:#FAFAF7;">ON TIME</div>
+      </div>
+      <div class="stop-row">
+        <div class="stop-row-route" style="background:#2F7B4F;">9</div>
+        <div class="stop-row-dest">North Terminal</div>
+        <div class="stop-row-time">15:02</div>
+        <div class="stop-row-delay" style="background:#E8A93B;color:#1A1A1A;">+1 MIN</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- STATION: TRIP / ROUTE LOOKUP -->
+<div class="section">
+  <div class="section-rail rail-blue"></div>
+  <div class="two-col">
+    <div>
+      <div class="eyebrow" style="color:#2B5FAD;">TRIP &amp; ROUTE LOOKUP</div>
+      <div class="heading">Follow the<br>whole trip</div>
+      <p>Look up a trip by ID, or search a route to see every trip running that day, stop by stop.</p>
+    </div>
+    <div class="station-card">
+      <div class="trip-id">T-220148</div>
+      <div class="trip-route">ROUTE 12 — DOWNTOWN</div>
+      <div class="trip-timeline">
+        <div class="trip-timeline-track"></div>
+        <div class="trip-timeline-progress" style="height:61.5%;"></div>
+        <div class="trip-timeline-marker" style="top:61.5%;"></div>
+
+        <div class="trip-stop-row">
+          <div class="trip-stop-dot trip-stop-dot--filled"></div>
+          <span class="trip-stop-id">STP-1102</span>
+          <span class="trip-stop-time">14:05</span>
+        </div>
+        <div class="trip-stop-row">
+          <div class="trip-stop-dot trip-stop-dot--filled"></div>
+          <span class="trip-stop-id">STP-1187</span>
+          <span class="trip-stop-time">14:11</span>
+        </div>
+        <div class="trip-stop-row">
+          <div class="trip-stop-dot trip-stop-dot--filled"></div>
+          <span class="trip-stop-id">STP-1249</span>
+          <span class="trip-stop-time">14:19</span>
+        </div>
+        <div class="trip-stop-row">
+          <div class="trip-stop-dot trip-stop-dot--pending"></div>
+          <span class="trip-stop-id">STP-1330</span>
+          <span class="trip-stop-time">14:27</span>
+        </div>
+        <div class="trip-stop-row">
+          <div class="trip-stop-dot trip-stop-dot--pending"></div>
+          <span class="trip-stop-id">STP-1401</span>
+          <span class="trip-stop-time">14:35</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- STATION: DISCOVER -->
+<div class="section">
+  <div class="section-rail rail-green"></div>
+  <div class="two-col">
+    <div>
+      <div class="eyebrow" style="color:#2F7B4F;">DISCOVER</div>
+      <div class="heading">Find what's<br>nearby</div>
+      <p>Type coordinates or click the map to find the nearest stops around any point.</p>
+    </div>
+    <div class="station-card">
+      <div class="discover-query">
+        <span class="discover-query-label">QUERY</span>
+        <span class="discover-query-coords">43.6426, -79.3871</span>
+        <span class="discover-query-radius">r ≤ 1.2 KM</span>
+      </div>
+      <div class="discover-map">
+        <div class="discover-tiles">
+          <img src="https://tile.openstreetmap.org/15/9156/11959.png" alt="">
+          <img src="https://tile.openstreetmap.org/15/9157/11959.png" alt="">
+          <img src="https://tile.openstreetmap.org/15/9158/11959.png" alt="">
+          <img src="https://tile.openstreetmap.org/15/9159/11959.png" alt="">
+          <img src="https://tile.openstreetmap.org/15/9156/11960.png" alt="">
+          <img src="https://tile.openstreetmap.org/15/9157/11960.png" alt="">
+          <img src="https://tile.openstreetmap.org/15/9158/11960.png" alt="">
+          <img src="https://tile.openstreetmap.org/15/9159/11960.png" alt="">
+          <img src="https://tile.openstreetmap.org/15/9156/11961.png" alt="">
+          <img src="https://tile.openstreetmap.org/15/9157/11961.png" alt="">
+          <img src="https://tile.openstreetmap.org/15/9158/11961.png" alt="">
+          <img src="https://tile.openstreetmap.org/15/9159/11961.png" alt="">
+        </div>
+        <svg class="discover-overlay" width="100%" height="100%" viewBox="0 0 340 249" preserveAspectRatio="none">
+          <circle cx="170" cy="124.5" r="60.2" fill="rgba(47,123,79,0.07)" stroke="#2F7B4F" stroke-width="1.5" stroke-dasharray="3 4"></circle>
+          <circle cx="170" cy="124.5" r="120.4" fill="none" stroke="#2F7B4F" stroke-width="1.5" stroke-dasharray="3 4" opacity="0.55"></circle>
+          <line x1="170" y1="124.5" x2="163.3" y2="71.9" stroke="#2F7B4F" stroke-width="1" stroke-dasharray="2 3" opacity="0.6"></line>
+          <line x1="170" y1="124.5" x2="234.9" y2="151.3" stroke="#2F7B4F" stroke-width="1" stroke-dasharray="2 3" opacity="0.6"></line>
+          <line x1="170" y1="124.5" x2="199.1" y2="60.2" stroke="#2F7B4F" stroke-width="1" stroke-dasharray="2 3" opacity="0.6"></line>
+          <line x1="170" y1="124.5" x2="233" y2="89" stroke="#2F7B4F" stroke-width="1" stroke-dasharray="2 3" opacity="0.6"></line>
+          <line x1="170" y1="124.5" x2="84.7" y2="95" stroke="#2F7B4F" stroke-width="1" stroke-dasharray="2 3" opacity="0.6"></line>
+          <line x1="170" y1="124.5" x2="174.8" y2="18.7" stroke="#2F7B4F" stroke-width="1" stroke-dasharray="2 3" opacity="0.6"></line>
+          <line x1="170" y1="124.5" x2="26.6" y2="128.5" stroke="#2F7B4F" stroke-width="1" stroke-dasharray="2 3" opacity="0.6"></line>
+        </svg>
+        <div class="discover-pin" style="left:48.029%;top:28.876%;"></div>
+        <div class="discover-pin" style="left:69.088%;top:60.763%;"></div>
+        <div class="discover-pin" style="left:58.559%;top:24.177%;"></div>
+        <div class="discover-pin" style="left:68.529%;top:35.743%;"></div>
+        <div class="discover-pin" style="left:24.912%;top:38.153%;"></div>
+        <div class="discover-pin" style="left:51.412%;top:7.51%;"></div>
+        <div class="discover-pin" style="left:7.824%;top:51.606%;"></div>
+        <div class="discover-origin"></div>
+        <div class="discover-attribution">© OSM</div>
+      </div>
+      <div class="discover-list-header">
+        <span>NEAREST STOPS</span>
+        <span>DISTANCE</span>
+      </div>
+      <div class="discover-row">
+        <span class="discover-row-name"><span class="discover-row-dot"></span><span>King St W at Simcoe</span></span>
+        <span class="discover-row-dist">0.44 km</span>
+      </div>
+      <div class="discover-row">
+        <span class="discover-row-name"><span class="discover-row-dot"></span><span>Queens Quay at York</span></span>
+        <span class="discover-row-dist">0.58 km</span>
+      </div>
+      <div class="discover-row">
+        <span class="discover-row-name"><span class="discover-row-dot"></span><span>St Andrew Station</span></span>
+        <span class="discover-row-dist">0.59 km</span>
+      </div>
+      <div class="discover-row">
+        <span class="discover-row-name"><span class="discover-row-dot"></span><span>Union Station</span></span>
+        <span class="discover-row-dist">0.60 km</span>
+      </div>
+      <div class="discover-row">
+        <span class="discover-row-name"><span class="discover-row-dot"></span><span>Spadina Ave at King</span></span>
+        <span class="discover-row-dist">0.75 km</span>
+      </div>
+      <div class="discover-row">
+        <span class="discover-row-name"><span class="discover-row-dot"></span><span>Osgoode Station</span></span>
+        <span class="discover-row-dist">0.88 km</span>
+      </div>
+      <div class="discover-row">
+        <span class="discover-row-name"><span class="discover-row-dot"></span><span>Bathurst at Front</span></span>
+        <span class="discover-row-dist">1.19 km</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- STATION: LIVE TRACKING -->
+<div class="section">
+  <div class="section-rail rail-yellow"></div>
+  <div class="two-col">
+    <div>
+      <div class="eyebrow" style="color:#E8A93B;">LIVE TRACKING</div>
+      <div class="heading">See it<br>moving</div>
+      <p>If a trip is running right now, watch its live position, speed, and delay update in real time.</p>
+    </div>
+    <div class="station-card">
+      <div class="live-map">
+        <div class="live-map-frame">
+          <div class="live-map-tiles-wrap">
+            <div class="live-map-tiles">
+              <img src="https://tile.openstreetmap.org/12/1140/1492.png" alt="">
+              <img src="https://tile.openstreetmap.org/12/1141/1492.png" alt="">
+              <img src="https://tile.openstreetmap.org/12/1142/1492.png" alt="">
+              <img src="https://tile.openstreetmap.org/12/1143/1492.png" alt="">
+              <img src="https://tile.openstreetmap.org/12/1144/1492.png" alt="">
+              <img src="https://tile.openstreetmap.org/12/1145/1492.png" alt="">
+              <img src="https://tile.openstreetmap.org/12/1146/1492.png" alt="">
+              <img src="https://tile.openstreetmap.org/12/1147/1492.png" alt="">
+              <img src="https://tile.openstreetmap.org/12/1140/1493.png" alt="">
+              <img src="https://tile.openstreetmap.org/12/1141/1493.png" alt="">
+              <img src="https://tile.openstreetmap.org/12/1142/1493.png" alt="">
+              <img src="https://tile.openstreetmap.org/12/1143/1493.png" alt="">
+              <img src="https://tile.openstreetmap.org/12/1144/1493.png" alt="">
+              <img src="https://tile.openstreetmap.org/12/1145/1493.png" alt="">
+              <img src="https://tile.openstreetmap.org/12/1146/1493.png" alt="">
+              <img src="https://tile.openstreetmap.org/12/1147/1493.png" alt="">
+              <img src="https://tile.openstreetmap.org/12/1140/1494.png" alt="">
+              <img src="https://tile.openstreetmap.org/12/1141/1494.png" alt="">
+              <img src="https://tile.openstreetmap.org/12/1142/1494.png" alt="">
+              <img src="https://tile.openstreetmap.org/12/1143/1494.png" alt="">
+              <img src="https://tile.openstreetmap.org/12/1144/1494.png" alt="">
+              <img src="https://tile.openstreetmap.org/12/1145/1494.png" alt="">
+              <img src="https://tile.openstreetmap.org/12/1146/1494.png" alt="">
+              <img src="https://tile.openstreetmap.org/12/1147/1494.png" alt="">
+              <img src="https://tile.openstreetmap.org/12/1140/1495.png" alt="">
+              <img src="https://tile.openstreetmap.org/12/1141/1495.png" alt="">
+              <img src="https://tile.openstreetmap.org/12/1142/1495.png" alt="">
+              <img src="https://tile.openstreetmap.org/12/1143/1495.png" alt="">
+              <img src="https://tile.openstreetmap.org/12/1144/1495.png" alt="">
+              <img src="https://tile.openstreetmap.org/12/1145/1495.png" alt="">
+              <img src="https://tile.openstreetmap.org/12/1146/1495.png" alt="">
+              <img src="https://tile.openstreetmap.org/12/1147/1495.png" alt="">
+            </div>
+            <svg class="live-map-overlay" width="166.0" height="260" viewBox="0 0 166.0 260">
+              <path d="M 116.2 29.2 L 116.4 30.5 L 116.7 31.8 L 116.8 32.8 L 117 34 L 117.1 34.5 L 117.5 36.2 L 117.8 37.9 L 118 38.9 L 118.1 39.8 L 118.2 40.2 L 118.4 41.4 L 118.5 41.9 L 118.6 42.5 L 118.8 43.5 L 119 44.6 L 119.1 45.2 L 119.2 45.8 L 119.3 46.5 L 119.4 46.9 L 119.6 48.1 L 119.8 49.1 L 119.9 49.7 L 120 50.1 L 120 50.2 L 120.2 51 L 120.4 52.2 L 120.6 53.2 L 120.7 53.9 L 120.7 54.2 L 120.9 55.2 L 121.1 56.3 L 121.3 57.3 L 121.3 57.6 L 121.5 58.1 L 121.5 58.4 L 121.5 58.5 L 121.7 59.3 L 121.7 59.5 L 121.8 59.7 L 121.9 60.2 L 122 60.7 L 122.1 61.1 L 122.2 61.4 L 122.3 61.9 L 122.4 62.3 L 122.4 62.8 L 122.5 63.2 L 122.5 63.4 L 122.6 63.7 L 122.6 64.1 L 122.7 64.6 L 122.7 65.2 L 122.7 66 L 122.8 66.3 L 122.8 66.7 L 122.8 67.2 L 122.9 67.6 L 123.2 69.1 L 123.4 70 L 123.5 70.2 L 123.8 70.4 L 124 70.9 L 124.2 71.3 L 124.8 74.7 L 125 75.5 L 125.3 77.6 L 125.8 81.5 L 125.9 82.5 L 125.7 83.1 L 125.8 83.7 L 126 84.9 L 126 85.5 L 126.3 87 L 126.3 87.1 L 126.3 87.2 L 126.4 87.6 L 126.4 87.9 L 126.6 88.7 L 126.6 88.8 L 126.8 90 L 126.8 90.1 L 127 91 L 127 91.3 L 127.2 92.1 L 127.3 92.5 L 127.4 93.1 L 127.4 93.5 L 127.6 94.2 L 127.6 94.5 L 127.7 95.1 L 127.8 95.6 L 128.1 97 L 128.3 97.8 L 128.4 98.5 L 128.4 98.7 L 128.5 99.5 L 128.6 100.1 L 128.7 100.5 L 128.8 101 L 129 102.4 L 129.1 103.6 L 129.3 104.9 L 129.4 105.4 L 129.5 106.4 L 129.6 106.9 L 129.8 108.3 L 130 109.1 L 130 109.4 L 130.2 110.5 L 130.3 111.1 L 130.4 111.6 L 130.5 112.7 L 130.5 112.9 L 130.6 113.5 L 130.8 114.4 L 130.9 115 L 131 115.9 L 131 116.1 L 131.3 117.8 L 131.4 118.4 L 131.6 119.5 L 131.6 119.8 L 131.8 121 L 131.8 121.2 L 131.8 121.4 L 131.7 121.6 L 131.9 123.3 L 131.9 123.8 L 131.8 124.3 L 131.8 124.9 L 131.9 125.8 L 131.9 126.6 L 132.2 128.8 L 132.6 131.2 L 132.7 131.8 L 132.8 132.2 L 133.2 133.4 L 133.3 133.7 L 133.4 134.2 L 134.6 140.2 L 134.7 140.6 L 135 141.1 L 135.4 141.4 L 135.7 141.8 L 136.3 144.3 L 138.7 151.8 L 140.7 158.1 L 141.3 160 L 141.5 160.6 L 141.7 161.4 L 142 162.1 L 142.3 162.6 L 142.5 163.1 L 142.7 164 L 143 165 L 143.1 165.5 L 143.3 166 L 143.5 167 L 145.2 172.9 L 145.3 173.3 L 145.4 173.9 L 145.5 174.3 L 145.6 175 L 145.6 175.5 L 145.6 176 L 145.5 176.3 L 145.5 176.6 L 145.4 176.9 L 145.4 177.3 L 145.5 177.6 L 145.6 177.8 L 146 179.2 L 146.1 179.5 L 146.5 180.5 L 146.6 181 L 146.6 181.1 L 146.9 182 L 147.1 182.6 L 147.3 183.1 L 147.5 184 L 147.8 184.7 L 148.4 186.8 L 149 188.8 L 149.3 189.7 L 149.5 190.5 L 149.7 191.3 L 150.2 192.9 L 150.3 193.2 L 150.4 193.5 L 150.5 193.7 L 150.5 193.9 L 150.5 194.1 L 150.6 194.4 L 150.6 194.7 L 150.6 195 L 150.6 195.2 L 150.5 195.5 L 150.4 195.7 L 150.3 196 L 150.1 196.1 L 150 196.3 L 149.7 196.4 L 149.4 196.6 L 149.1 196.8 L 148.7 196.9 L 148.3 197 L 147.8 197.2 L 147.2 197.4 L 147 197.5 L 146.7 197.5 L 146.5 197.5 L 146.3 197.5 L 146.1 197.4 L 145.9 197.3 L 145.6 197.2 L 145.4 197 L 145.1 196.7 L 144.9 196.4 L 144.7 196.1 L 144.5 195.7 L 144.3 195.3 L 144.1 195 L 144 194.7 L 143.7 194 L 143.4 193.2 L 143.1 192.8 L 142.8 192.1 L 142.7 191.7 L 142.4 190.8 L 142.1 189.6 L 141.8 189 L 141.6 188.1 L 141.5 188 L 141.2 186.9 L 140.9 185.9 L 140.9 185.9 L 140.6 185 L 140.6 184.8 L 140.3 183.9 L 140.3 183.9 L 140 183 L 139.8 182.5 L 139.7 182 L 139.4 181.2 L 139.4 181 L 138.9 179.6 L 138.7 178.7 L 138.6 178.1 L 138.6 177.6 L 138.6 177.2 L 138.6 176.9 L 138.5 176.6 L 138.5 176.4 L 138.5 176.1 L 138.4 175.7 L 138.3 175.3 L 138.2 174.9 L 138.1 174.5 L 137.9 174.1 L 137.7 173.7 L 137.5 173.4 L 137.3 173 L 137 172.5 L 136.7 172 L 136.2 170.4 L 136 169.9 L 135.8 169.3 L 135.6 168.9 L 135.4 168.6 L 135.1 168.5 L 134.9 168.4 L 134.6 168.3 L 134.3 168.3 L 133.9 168.4 L 133.2 168.5 L 132.5 168.7 L 131.6 168.9 L 130.4 169.3 L 128.8 169.8 L 128.5 169.8 L 128.2 169.9 L 127.9 170 L 127.5 170 L 127.1 170 L 126.8 169.9 L 126.6 169.7 L 126.5 169.5 L 126.4 169.2 L 126.3 168.9 L 126.1 168.3 L 125.6 166.6 L 125 164.3 L 124 161 L 123.8 160.2 L 123.8 160.2 L 123.7 159.7 L 123.1 157.8 L 122.5 156 L 122.5 156 L 122.5 155.9 L 122.3 155.1 L 121.9 153.9 L 121.5 152.4 L 121.5 152.4 L 121.4 152.2 L 121.3 152 L 121.2 151.9 L 121.1 151.7 L 121 151.6 L 120.8 151.4 L 120.6 151.3 L 120.5 151.2 L 120.3 151.1 L 120.1 151.1 L 119.8 151 L 119.6 151 L 119.3 151 L 118.7 151 L 118.2 151 L 117.7 151 L 117.4 151 L 117.3 150.9 L 117.1 150.9 L 117 150.8 L 117 150.7 L 116.8 150.5 L 116.8 150.3 L 116.7 150.1 L 116.6 149.9 L 116.3 148.9 L 115.8 147.1 L 115.4 146.2 L 114.9 145.1 L 114.5 144.3 L 114 143.5 L 113.1 142.7 L 112.2 142.2 L 111.1 141.8 L 109.8 141.4 L 108.4 141.1 L 106.9 140.7 L 105.7 140.3 L 104.7 139.7 L 103.9 139.2 L 103.2 138.7 L 102.4 138 L 101.7 137.2 L 100.9 136.3 L 100.2 135.4 L 99.5 134.5 L 98.8 133.2 L 98.3 131.8 L 97.9 130.8 L 96 123.9 L 95.8 123 L 95.5 122.3 L 93.6 118.3 L 93.4 117.8 L 92.8 116.6 L 92.7 116.4 L 92.7 116.3 L 92.7 116.3 L 92.6 116.1 L 92.6 116 L 92.5 115.9 L 92.5 115.8 L 92.4 115.7 L 92.4 115.6 L 92.3 115.4 L 92.3 115.3 L 92.2 115.2 L 92.2 115 L 92.2 114.9 L 92.1 114.7 L 91.8 113.9 L 91.8 113.6 L 91.2 111.6 L 91.2 111.5 L 90.9 110.4 L 90.7 109.7 L 90.4 108.8 L 89.7 106.2 L 89.6 105.9 L 88.7 102.3 L 88.1 100.4 L 88 100.1 L 87.9 99.9 L 87.9 99.7 L 87.8 99.5 L 87.8 99.3 L 87.7 99.1 L 87.7 99.1 L 87.7 98.9 L 87.6 98.7 L 87.6 98.6 L 87.6 98.5 L 87.5 98.5 L 87.5 98.4 L 87.5 98.3 L 87.5 98.3 L 87.4 98.2 L 87.4 98.1 L 87.4 98.1 L 87.4 98 L 87.4 97.9 L 87.4 97.9 L 87.3 97.8 L 87.3 97.8 L 87.3 97.7 L 87.3 97.7 L 87.3 97.6 L 87.3 97.6 L 87.3 97.5 L 87.3 97.4 L 87.3 97.4 L 87.3 97.3 L 87.2 97.2 L 87.2 97.2 L 87.2 97.1 L 87.2 97 L 87.2 96.9 L 87.2 96.8 L 87.1 96.7 L 87.1 96.6 L 87.1 96.5 L 87.1 96.4 L 87.1 96.3 L 87.1 96.2 L 87 96.1 L 87 96 L 87 95.9 L 87 95.8 L 87 95.8 L 87 95.7 L 86.7 93 L 86.6 92.8 L 86.6 92.6 L 86.6 92.6 L 86.6 92.3 L 86.6 92.1 L 86.5 91.9 L 86.5 91.4 L 86.5 91.4 L 86.5 91.3 L 86.5 91.2 L 86.5 91.2 L 86.5 91.2 L 86.4 91.1 L 86.4 91.1 L 86.4 91 L 86.4 90.9 L 86.4 90.9 L 86.4 90.8 L 86.4 90.8 L 86.4 90.7 L 86.4 90.6 L 86.4 90.6 L 86.3 90.5 L 86.3 90.5 L 86.3 90.4 L 86.3 90.3 L 86.3 90.3 L 86.3 90.3 L 86.3 90.2 L 86.2 90.2 L 86.2 90.1 L 86.2 90 L 86.2 90 L 86.2 89.9 L 86.1 89.8 L 86.1 89.7 L 86.1 89.6 L 86.1 89.6 L 86 89.5 L 86 89.4 L 86 89.3 L 86 89.2 L 86 89.2 L 86 89.1 L 85.9 89 L 85.5 87.4 L 85.5 87.2 L 85.3 86.3 L 84.7 84.2 L 84.4 83.5 L 84.1 82.9 L 83.7 82.4 L 83.3 81.8 L 82.6 81.3 L 82.2 80.9 L 81.5 80.3 L 81 79.7 L 80.5 79.2 L 79.7 78.5 L 79.1 77.9 L 78.4 77.2 L 77.9 76.6 L 77.3 76.1 L 76.8 75.6 L 76.4 74.9 L 75.9 74 L 75.6 72.9 L 75.4 71.9 L 75.3 71.2 L 74.9 69.7 L 74.7 68.8 L 74.6 68.1 L 74.4 67.6 L 73.8 65.5 L 73.4 64.2 L 73.3 63.9 L 73.1 63.7 L 72.9 63.4 L 72.8 63.2 L 72.6 63.1 L 72.4 62.9 L 72.3 62.8 L 72.2 62.7 L 72 62.6 L 71.7 62.4 L 71.6 62.3 L 71.3 62.2 L 71.1 62.2 L 70.8 62.1 L 70.4 62 L 70.1 61.9 L 68.7 61.6 L 67.7 61.4 L 67.3 61.4 L 66.7 61.4 L 66.3 61.4 L 66 61.4 L 65.4 61.5 L 65 61.5 L 64.6 61.6 L 64.1 61.8 L 63.6 61.9 L 63.2 62 L 60.9 62.7 L 58.9 63.4 L 58.2 63.5 L 58.1 63.6 L 57.8 63.6 L 57.6 63.6 L 57.3 63.7 L 57 63.7 L 56.8 63.7 L 56.5 63.7 L 55.6 63.6 L 55.2 63.5 L 54.8 63.4 L 54.5 63.3 L 54.3 63.2 L 54.1 63.1 L 53.6 62.9 L 53.1 62.6 L 52.6 62.2 L 52 61.7 L 51.7 61.4 L 51.4 61 L 51.3 60.9 L 51.2 60.7 L 51.1 60.6 L 50.9 60.3 L 50.7 60 L 50.6 59.7 L 50.4 59.4 L 50.2 58.8 L 50.1 58 L 49.9 56.9 L 49.7 55.9 L 49.6 55.2 L 48.7 50.7 L 48.2 47.9 L 48.1 47.5 L 48.1 47.1 L 47.9 46.1 L 47.9 46.1 L 47.8 45.9 L 47.4 43.4 L 47.2 42.8 L 47 42.3 L 46.8 41.9 L 46.6 41.5 L 46.5 41.2 L 46.3 41 L 46.1 40.7 L 45.8 40.3 L 45.6 40.1 L 45.3 39.7 L 45 39.5 L 44.9 39.3 L 44.5 39.1 L 44.2 38.8 L 43.9 38.7 L 43.7 38.5 L 43.1 38.2 L 42.5 38 L 41.9 37.8 L 40.2 37.1 L 38.6 36.5 L 36.4 35.6 L 34.4 34.9 L 33.1 34.4 L 29.4 32.9 L 27.6 32.2 L 24.6 31 L 23.9 30.8 L 23.4 30.6 L 23.2 30.5 L 23 30.3 L 22.7 30.1 L 22.3 29.9 L 21.9 29.6 L 21.7 29.4 L 21.5 29.1 L 21.3 28.9 L 21.1 28.5 L 20.6 27.7 L 20.5 27.3 L 20.3 26.9 L 19.7 25.1 L 18.6 22.4 L 18.1 20.9 L 17.7 19.7 L 17.5 19 L 17.3 18.5 L 17.2 18 L 17.1 17.5 L 16.9 16.9 L 16.5 15.1 L 15.4 9.3" fill="none" stroke="#E8A93B" stroke-width="2.5" stroke-dasharray="1 5" stroke-linecap="round" opacity="0.65"></path>
+              <path d="M 116.2 29.2 L 116.4 30.5 L 116.7 31.8 L 116.8 32.8 L 117 34 L 117.1 34.5 L 117.5 36.2 L 117.8 37.9 L 118 38.9 L 118.1 39.8 L 118.2 40.2 L 118.4 41.4 L 118.5 41.9 L 118.6 42.5 L 118.8 43.5 L 119 44.6 L 119.1 45.2 L 119.2 45.8 L 119.3 46.5 L 119.4 46.9 L 119.6 48.1 L 119.8 49.1 L 119.9 49.7 L 120 50.1 L 120 50.2 L 120.2 51 L 120.4 52.2 L 120.6 53.2 L 120.7 53.9 L 120.7 54.2 L 120.9 55.2 L 121.1 56.3 L 121.3 57.3 L 121.3 57.6 L 121.5 58.1 L 121.5 58.4 L 121.5 58.5 L 121.7 59.3 L 121.7 59.5 L 121.8 59.7 L 121.9 60.2 L 122 60.7 L 122.1 61.1 L 122.2 61.4 L 122.3 61.9 L 122.4 62.3 L 122.4 62.8 L 122.5 63.2 L 122.5 63.4 L 122.6 63.7 L 122.6 64.1 L 122.7 64.6 L 122.7 65.2 L 122.7 66 L 122.8 66.3 L 122.8 66.7 L 122.8 67.2 L 122.9 67.6 L 123.2 69.1 L 123.4 70 L 123.5 70.2 L 123.8 70.4 L 124 70.9 L 124.2 71.3 L 124.8 74.7 L 125 75.5 L 125.3 77.6 L 125.8 81.5 L 125.9 82.5 L 125.7 83.1 L 125.8 83.7 L 126 84.9 L 126 85.5 L 126.3 87 L 126.3 87.1 L 126.3 87.2 L 126.4 87.6 L 126.4 87.9 L 126.6 88.7 L 126.6 88.8 L 126.8 90 L 126.8 90.1 L 127 91 L 127 91.3 L 127.2 92.1 L 127.3 92.5 L 127.4 93.1 L 127.4 93.5 L 127.6 94.2 L 127.6 94.5 L 127.7 95.1 L 127.8 95.6 L 128.1 97 L 128.3 97.8 L 128.4 98.5 L 128.4 98.7 L 128.5 99.5 L 128.6 100.1 L 128.7 100.5 L 128.8 101 L 129 102.4 L 129.1 103.6 L 129.3 104.9 L 129.4 105.4 L 129.5 106.4 L 129.6 106.9 L 129.8 108.3 L 130 109.1 L 130 109.4 L 130.2 110.5 L 130.3 111.1 L 130.4 111.6 L 130.5 112.7 L 130.5 112.9 L 130.6 113.5 L 130.8 114.4 L 130.9 115 L 131 115.9 L 131 116.1 L 131.3 117.8 L 131.4 118.4 L 131.6 119.5 L 131.6 119.8 L 131.8 121 L 131.8 121.2 L 131.8 121.4 L 131.7 121.6 L 131.9 123.3 L 131.9 123.8 L 131.8 124.3 L 131.8 124.9 L 131.9 125.8 L 131.9 126.6 L 132.2 128.8 L 132.6 131.2 L 132.7 131.8 L 132.8 132.2 L 133.2 133.4 L 133.3 133.7 L 133.4 134.2 L 134.6 140.2 L 134.7 140.6 L 135 141.1 L 135.4 141.4 L 135.7 141.8 L 136.3 144.3 L 138.7 151.8 L 140.7 158.1 L 141.3 160 L 141.5 160.6 L 141.7 161.4 L 142 162.1 L 142.3 162.6 L 142.5 163.1 L 142.7 164 L 143 165 L 143.1 165.5 L 143.3 166 L 143.5 167 L 145.2 172.9 L 145.3 173.3 L 145.4 173.9 L 145.5 174.3 L 145.6 175 L 145.6 175.5 L 145.6 176 L 145.5 176.3 L 145.5 176.6 L 145.4 176.9 L 145.4 177.3 L 145.5 177.6 L 145.6 177.8 L 146 179.2 L 146.1 179.5 L 146.5 180.5 L 146.6 181 L 146.6 181.1 L 146.9 182 L 147.1 182.6 L 147.3 183.1 L 147.5 184 L 147.8 184.7 L 148.4 186.8 L 149 188.8 L 149.3 189.7 L 149.5 190.5 L 149.7 191.3 L 150.2 192.9 L 150.3 193.2 L 150.4 193.5 L 150.5 193.7 L 150.5 193.9 L 150.5 194.1 L 150.6 194.4 L 150.6 194.7 L 150.6 195 L 150.6 195.2 L 150.5 195.5 L 150.4 195.7 L 150.3 196 L 150.1 196.1 L 150 196.3 L 149.7 196.4 L 149.4 196.6 L 149.1 196.8 L 148.7 196.9 L 148.3 197 L 147.8 197.2 L 147.2 197.4 L 147 197.5 L 146.7 197.5 L 146.5 197.5 L 146.3 197.5 L 146.1 197.4 L 145.9 197.3 L 145.6 197.2 L 145.4 197 L 145.1 196.7 L 144.9 196.4 L 144.7 196.1 L 144.5 195.7 L 144.3 195.3 L 144.1 195 L 144 194.7 L 143.7 194 L 143.4 193.2 L 143.1 192.8 L 142.8 192.1 L 142.7 191.7 L 142.4 190.8 L 142.1 189.6 L 141.8 189 L 141.6 188.1 L 141.5 188 L 141.2 186.9 L 140.9 185.9 L 140.9 185.9 L 140.6 185 L 140.6 184.8 L 140.3 183.9 L 140.3 183.9 L 140 183 L 139.8 182.5 L 139.7 182 L 139.4 181.2 L 139.4 181 L 138.9 179.6 L 138.7 178.7 L 138.6 178.1 L 138.6 177.6 L 138.6 177.2 L 138.6 176.9 L 138.5 176.6 L 138.5 176.4 L 138.5 176.1 L 138.4 175.7 L 138.3 175.3 L 138.2 174.9 L 138.1 174.5 L 137.9 174.1 L 137.7 173.7 L 137.5 173.4 L 137.3 173 L 137 172.5 L 136.7 172 L 136.2 170.4 L 136 169.9 L 135.8 169.3 L 135.6 168.9 L 135.4 168.6 L 135.1 168.5 L 134.9 168.4 L 134.6 168.3 L 134.3 168.3 L 133.9 168.4 L 133.2 168.5 L 132.5 168.7 L 131.6 168.9 L 130.4 169.3 L 128.8 169.8 L 128.5 169.8 L 128.2 169.9 L 127.9 170 L 127.5 170 L 127.1 170 L 126.8 169.9 L 126.6 169.7 L 126.5 169.5 L 126.4 169.2 L 126.3 168.9 L 126.1 168.3 L 125.6 166.6 L 125 164.3 L 124 161 L 123.8 160.2 L 123.8 160.2 L 123.7 159.7 L 123.1 157.8 L 122.5 156 L 122.5 156 L 122.5 155.9 L 122.3 155.1 L 121.9 153.9 L 121.5 152.4 L 121.5 152.4 L 121.4 152.2 L 121.3 152 L 121.2 151.9 L 121.1 151.7 L 121 151.6 L 120.8 151.4 L 120.6 151.3 L 120.5 151.2 L 120.3 151.1 L 120.1 151.1 L 119.8 151 L 119.6 151 L 119.3 151 L 118.7 151 L 118.2 151 L 117.7 151 L 117.4 151 L 117.3 150.9 L 117.1 150.9 L 117 150.8 L 117 150.7 L 116.8 150.5 L 116.8 150.3 L 116.7 150.1 L 116.6 149.9 L 116.3 148.9 L 115.8 147.1 L 115.4 146.2 L 114.9 145.1 L 114.5 144.3 L 114 143.5 L 113.1 142.7 L 112.2 142.2 L 111.1 141.8 L 109.8 141.4 L 108.4 141.1 L 106.9 140.7 L 105.7 140.3 L 104.7 139.7 L 103.9 139.2 L 103.2 138.7 L 102.4 138 L 101.7 137.2 L 100.9 136.3 L 100.2 135.4 L 99.5 134.5 L 98.8 133.2 L 98.3 131.8 L 97.9 130.8 L 96 123.9 L 95.8 123 L 95.5 122.3 L 93.6 118.3 L 93.4 117.8 L 92.8 116.6 L 92.7 116.4 L 92.7 116.3 L 92.7 116.3 L 92.6 116.1 L 92.6 116 L 92.5 115.9 L 92.5 115.8 L 92.4 115.7 L 92.4 115.6 L 92.3 115.4 L 92.3 115.3 L 92.2 115.2 L 92.2 115 L 92.2 114.9 L 92.1 114.7 L 91.8 113.9 L 91.8 113.6 L 91.2 111.6 L 91.2 111.5 L 90.9 110.4 L 90.7 109.7 L 90.4 108.8 L 89.7 106.2 L 89.6 105.9 L 88.7 102.3 L 88.1 100.4 L 88 100.1 L 87.9 99.9 L 87.9 99.7 L 87.8 99.5 L 87.8 99.3 L 87.7 99.1 L 87.7 99.1 L 87.7 98.9 L 87.6 98.7 L 87.6 98.6 L 87.6 98.5 L 87.5 98.5 L 87.5 98.4 L 87.5 98.3 L 87.5 98.3 L 87.4 98.2 L 87.4 98.1 L 87.4 98.1 L 87.4 98 L 87.4 97.9 L 87.4 97.9 L 87.3 97.8 L 87.3 97.8 L 87.3 97.7 L 87.3 97.7 L 87.3 97.6 L 87.3 97.6 L 87.3 97.5 L 87.3 97.4 L 87.3 97.4 L 87.3 97.3 L 87.2 97.2 L 87.2 97.2 L 87.2 97.1 L 87.2 97 L 87.2 96.9 L 87.2 96.8 L 87.1 96.7 L 87.1 96.6 L 87.1 96.5 L 87.1 96.4 L 87.1 96.3 L 87.1 96.2 L 87 96.1 L 87 96 L 87 95.9 L 87 95.8 L 87 95.8 L 87 95.7 L 86.7 93 L 86.6 92.8 L 86.6 92.6 L 86.6 92.6 L 86.6 92.3 L 86.6 92.1 L 86.5 91.9 L 86.5 91.4 L 86.5 91.4 L 86.5 91.3 L 86.5 91.2 L 86.5 91.2 L 86.5 91.2 L 86.4 91.1 L 86.4 91.1 L 86.4 91 L 86.4 90.9 L 86.4 90.9 L 86.4 90.8 L 86.4 90.8 L 86.4 90.7 L 86.4 90.6 L 86.4 90.6 L 86.3 90.5 L 86.3 90.5 L 86.3 90.4 L 86.3 90.3 L 86.3 90.3 L 86.3 90.3 L 86.3 90.2 L 86.2 90.2 L 86.2 90.1 L 86.2 90 L 86.2 90 L 86.2 89.9 L 86.1 89.8 L 86.1 89.7 L 86.1 89.6 L 86.1 89.6 L 86 89.5 L 86 89.4 L 86 89.3 L 86 89.2 L 86 89.2 L 86 89.1 L 85.9 89 L 85.5 87.4 L 85.5 87.2 L 85.3 86.3 L 84.7 84.2 L 84.4 83.5 L 84.1 82.9 L 83.7 82.4 L 83.3 81.8 L 82.6 81.3 L 82.2 80.9 L 81.5 80.3 L 81 79.7 L 80.5 79.2 L 79.7 78.5 L 79.1 77.9 L 78.4 77.2 L 77.9 76.6 L 77.3 76.1 L 76.8 75.6 L 76.4 74.9 L 75.9 74 L 75.6 72.9 L 75.4 71.9 L 75.3 71.2 L 74.9 69.7 L 74.7 68.8 L 74.6 68.1 L 74.4 67.6 L 73.8 65.5 L 73.4 64.2 L 73.3 63.9 L 73.1 63.7 L 72.9 63.4 L 72.8 63.2 L 72.6 63.1 L 72.4 62.9 L 72.3 62.8 L 72.2 62.7 L 72 62.6 L 71.7 62.4 L 71.6 62.3 L 71.3 62.2 L 71.1 62.2 L 70.8 62.1 L 70.4 62 L 70.1 61.9 L 68.7 61.6 L 67.7 61.4 L 67.3 61.4 L 66.7 61.4 L 66.3 61.4 L 66 61.4 L 65.4 61.5 L 65 61.5 L 64.6 61.6 L 64.1 61.8 L 63.6 61.9 L 63.2 62 L 60.9 62.7 L 58.9 63.4 L 58.2 63.5 L 58.1 63.6 L 57.8 63.6 L 57.6 63.6 L 57.3 63.7 L 57 63.7 L 56.8 63.7 L 56.5 63.7 L 55.6 63.6 L 55.2 63.5 L 54.8 63.4 L 54.5 63.3 L 54.3 63.2 L 54.1 63.1 L 53.6 62.9 L 53.1 62.6 L 52.6 62.2 L 52 61.7 L 51.7 61.4 L 51.4 61 L 51.3 60.9 L 51.2 60.7 L 51.1 60.6 L 50.9 60.3 L 50.7 60 L 50.6 59.7 L 50.4 59.4 L 50.2 58.8 L 50.1 58 L 49.9 56.9 L 49.7 55.9 L 49.6 55.2 L 48.7 50.7 L 48.2 47.9 L 48.1 47.5 L 48.1 47.1 L 47.9 46.1 L 47.9 46.1 L 47.8 45.9 L 47.4 43.4 L 47.2 42.8 L 47 42.3 L 46.8 41.9 L 46.6 41.5 L 46.5 41.2 L 46.3 41 L 46.1 40.7 L 45.8 40.3 L 45.6 40.1 L 45.3 39.7 L 45 39.5 L 44.9 39.3 L 44.5 39.1 L 44.2 38.8 L 43.9 38.7 L 43.7 38.5 L 43.1 38.2 L 42.5 38 L 41.9 37.8 L 40.2 37.1 L 38.6 36.5 L 36.4 35.6 L 34.4 34.9 L 33.1 34.4 L 29.4 32.9 L 27.6 32.2 L 24.6 31 L 23.9 30.8 L 23.4 30.6 L 23.2 30.5 L 23 30.3 L 22.7 30.1 L 22.3 29.9 L 21.9 29.6 L 21.7 29.4 L 21.5 29.1 L 21.3 28.9 L 21.1 28.5 L 20.6 27.7 L 20.5 27.3 L 20.3 26.9 L 19.7 25.1 L 18.6 22.4 L 18.1 20.9 L 17.7 19.7 L 17.5 19 L 17.3 18.5 L 17.2 18 L 17.1 17.5 L 16.9 16.9 L 16.5 15.1 L 15.4 9.3" fill="none" stroke="#E8A93B" stroke-width="2.5" stroke-linecap="round"></path>
+            </svg>
+            <div class="live-bus" style="left:97.5px;top:130.9px;transform:translate(-50%,-50%) rotate(-70deg);"></div>
+          </div>
+        </div>
+      </div>
+      <div class="live-speed">
+        <div class="live-speed-value">27.6</div>
+        <div class="live-speed-unit">KM</div>
+      </div>
+      <div class="live-status">ON TIME</div>
+      <div class="live-line">TTC LINE 1 · FULL ALIGNMENT</div>
+    </div>
+  </div>
+</div>
+
+<!-- HOW IT'S BUILT -->
+<div class="section">
+  <div class="section-rail rail-ink"></div>
+  <div class="section-body section-body--narrow">
+    <div class="eyebrow" style="opacity:0.6;">HOW IT'S BUILT</div>
+    <div class="heading" style="margin-bottom:30px;">Under the hood</div>
+    <div class="data-list">
+      <div class="build-row">
+        <div class="build-row-swatch"></div>
+        <div class="build-row-label">FRONTEND</div>
+        <div class="build-row-desc">Map, search, and live UI — talks to a small Flask server.</div>
+      </div>
+      <div class="build-row">
+        <div class="build-row-swatch"></div>
+        <div class="build-row-label">FLASK</div>
+        <div class="build-row-desc">Relays requests only. It does not parse GTFS itself.</div>
+      </div>
+      <div class="build-row">
+        <div class="build-row-swatch"></div>
+        <div class="build-row-label">C++</div>
+        <div class="build-row-desc">Compiled parsers read GTFS data and print the answer.</div>
+      </div>
+      <div class="build-row">
+        <div class="build-row-swatch"></div>
+        <div class="build-row-label">PUBLIC COPY</div>
+        <div class="build-row-desc">Token-gated when the server is exposed outside localhost.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- END OF THE LINE -->
+<div class="terminus">
+  <div class="terminus-kicker">TERMINUS</div>
+  <div class="terminus-title">End of the line</div>
+  <div class="terminus-links">
+    <a class="terminus-link" href="https://gtfs.jettm.dev/?token=GTFSPARSERCREATEDBYJETTMUCOPYRIGHT_a714a33fjdsf9hjw_2026_ALLRIGHTSRESERVED_AUTHORIZEDUSEONLY" target="_blank" rel="noopener">
+      <div class="terminus-link-icon"><div class="terminus-link-icon-dot" style="background:#D6432B;"></div></div>
+      <div class="terminus-link-label">TRY IT LIVE</div>
+    </a>
+    <a class="terminus-link" href="https://github.com/jett-mu/gtfs-parser" target="_blank" rel="noopener">
+      <div class="terminus-link-icon"><div class="terminus-link-icon-dot" style="background:#2B5FAD;"></div></div>
+      <div class="terminus-link-label">VIEW THE CODE</div>
+    </a>
+  </div>
+  <div class="terminus-rule"></div>
+  <div class="terminus-note">GTFS.JETTM.DEV, an independent project.</div>
+</div>
+
+</body>
+</html>

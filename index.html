@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Jett M. - Portfolio</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="page">
+
+  <svg class="hero-lines" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice">
+    <path d="M -50 680 C 300 680, 380 520, 620 520 S 900 300, 1150 300 S 1500 120, 1700 120" stroke="#D6432B" stroke-width="6" fill="none"></path>
+    <path d="M -50 220 C 250 220, 340 420, 600 420 S 950 620, 1200 620 S 1450 780, 1700 780" stroke="#2B5FAD" stroke-width="6" fill="none"></path>
+    <path d="M -50 460 L 1700 460" stroke="#2F7B4F" stroke-width="6" fill="none"></path>
+    <path d="M 400 -50 L 400 950 M 1050 -50 L 1050 950" stroke="#E8A93B" stroke-width="6" fill="none"></path>
+  </svg>
+
+  <!-- TOP BAR -->
+  <div class="topbar">
+    <div class="topbar-mark mono">JETTM.DEV</div>
+    <div class="topbar-nav">
+      <a href="#work">WORK</a>
+      <a href="#contact">CONTACT</a>
+    </div>
+  </div>
+
+  <!-- MAIN -->
+  <div class="main">
+
+    <!-- HERO / ABOUT -->
+    <div class="hero-col">
+      <div class="hero-kicker mono">SOFTWARE / PORTFOLIO</div>
+      <h1 class="hero-title display">Jett M.</h1>
+      <p class="hero-sub">Student based in Toronto, Canada.</p>
+
+      <ul class="about-list">
+        <li>
+          <span class="about-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="7" cy="14.5" r="4"></circle>
+              <path d="M10.2 12 20 5l-2 6.5-7.3 3.2"></path>
+              <path d="M20 5l-4.3 8.5"></path>
+            </svg>
+          </span>
+          <span>Currently working on a <strong>GTFS Parser</strong>, an app to tell the bus time.</span>
+        </li>
+        <li>
+          <span class="about-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 21v-8"></path>
+              <path d="M12 13c0-4 3-6 7-6 0 4-3 7-7 6z"></path>
+              <path d="M12 13c0-3.2-2.2-5-6-5 0 3.2 2.4 5.6 6 5z"></path>
+            </svg>
+          </span>
+          <span>Currently learning <strong>competitive programming</strong> and advanced C++.</span>
+        </li>
+        <li>
+          <span class="about-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 5h16v10H8l-4 4V5z"></path>
+            </svg>
+          </span>
+          <span>Enjoy photography, mathematics, programming, robotics, video editing, aviation, and radio engineering (ham radio operator <strong>VA3NDE</strong>).</span>
+        </li>
+      </ul>
+
+      <div class="skills">
+        <div class="skills-label mono">SKILLS</div>
+        <ol class="skills-list mono">
+          <li>C++</li>
+          <li>Java</li>
+          <li>Python</li>
+          <li>SwiftUI</li>
+          <li>HTML</li>
+          <li>CSS</li>
+          <li>TS</li>
+          <li>JS</li>
+        </ol>
+      </div>
+
+      <div class="hero-dot-track"><div class="hero-dot"></div></div>
+      <div class="hero-social">
+        <a class="btn btn-red" href="mailto:jett@jettm.dev"><span class="btn-tag">EMAIL</span>jett@jettm.dev</a>
+        <a class="btn btn-blue" href="https://github.com/jett-mu" target="_blank" rel="noopener"><span class="btn-tag">GITHUB</span>@jett-mu</a>
+      </div>
+    </div>
+
+    <!-- WORK -->
+    <div class="work-col" id="work">
+      <div class="work-heading">SELECTED WORK</div>
+      <div class="work-grid">
+
+        <div class="work-card c-red">
+          <div class="work-body">
+            <div class="work-thumb"><img src="assets/gtfs-parser.png" alt="GTFS Parser screenshot"></div>
+            <div class="work-info">
+              <div class="work-tag">C++ · PARSING</div>
+              <div class="work-title">GTFS Parser</div>
+            </div>
+          </div>
+          <div class="work-actions">
+            <a class="work-btn btn-demo" href="https://gtfs.jettm.dev" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 4.5v15l13-7.5-13-7.5z"></path></svg>
+              Demo
+            </a>
+            <a class="work-btn btn-showcase" href="gtfs/GTFS Parser Showcase.dc.html">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="1.5"></rect><path d="M4 9.5h16"></path></svg>
+              Showcase
+            </a>
+            <a class="work-btn btn-code" href="https://github.com/jett-mu/GTFS-Parser" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18.5 4.5 14l4.5-4.5M15 9.5l4.5 4.5-4.5 4.5"></path></svg>
+              Code
+            </a>
+          </div>
+        </div>
+
+        <div class="work-card c-blue">
+          <div class="work-body">
+            <div class="work-thumb"><img src="assets/wind-tunnel.png" alt="Wind Tunnel simulator screenshot"></div>
+            <div class="work-info">
+              <div class="work-tag">SIMULATION · AERODYNAMICS</div>
+              <div class="work-title">Wind Tunnel</div>
+            </div>
+          </div>
+          <div class="work-actions">
+            <a class="work-btn btn-demo" href="https://windtunnel.jettm.dev" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 4.5v15l13-7.5-13-7.5z"></path></svg>
+              Demo
+            </a>
+            <a class="work-btn btn-showcase" href="windtunnel/index.html">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="1.5"></rect><path d="M4 9.5h16"></path></svg>
+              Showcase
+            </a>
+            <a class="work-btn btn-code" href="https://github.com/jett-mu/windTunnel" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18.5 4.5 14l4.5-4.5M15 9.5l4.5 4.5-4.5 4.5"></path></svg>
+              Code
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer" id="contact">
+    <div class="footer-copy mono">JETTM.DEV</div>
+    <div class="footer-copy mono">© 2026</div>
+  </div>
+
+</div>
+
+</body>
+</html>
