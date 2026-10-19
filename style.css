@@ -108,6 +108,54 @@ a:hover { color: var(--ink); }
   pointer-events: none;
 }
 
+/* home only: the map is lit per line instead of faded as a whole.
+   Lines rest at the same faintness as other pages; the active
+   project's line (data-active, set by the script) darkens and thickens. */
+.map-live { opacity: 1; }
+
+.map-live path,
+.map-live circle {
+  opacity: 0.09;
+  transition: opacity 500ms var(--ease-out), stroke-width 500ms var(--ease-out);
+}
+
+.map-live[data-active] path { opacity: 0.05; }
+.map-live[data-active] circle { opacity: 0.14; }
+
+.map-live[data-active="red"] path[data-line="red"],
+.map-live[data-active="blue"] path[data-line="blue"],
+.map-live[data-active="green"] path[data-line="green"],
+.map-live[data-active="yellow"] path[data-line="yellow"] {
+  opacity: 0.3;
+  stroke-width: 10px;
+}
+
+/* on load, each line traces in from its start, then its station appears.
+   pathLength="1" on the paths makes the dash maths length-independent;
+   "backwards" fill means nothing lingers once the draw is done */
+@media (prefers-reduced-motion: no-preference) {
+  .map-live path {
+    animation: map-draw 1.6s cubic-bezier(0.65, 0, 0.35, 1) backwards;
+    animation-delay: calc(var(--d, 0) * 220ms);
+  }
+
+  .map-live circle {
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: map-station 500ms var(--ease-out) backwards;
+    animation-delay: calc(var(--d, 0) * 220ms + 1100ms);
+  }
+}
+
+@keyframes map-draw {
+  from { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  to   { stroke-dasharray: 1; stroke-dashoffset: 0; }
+}
+
+@keyframes map-station {
+  from { transform: scale(0); }
+}
+
 .site-header,
 main,
 .site-footer {

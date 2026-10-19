@@ -23,15 +23,17 @@
 
 <a class="skip-link" href="#main">Skip to content</a>
 
-<svg class="system-map" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
-  <path d="M -50 680 C 300 680, 380 520, 620 520 S 900 300, 1150 300 S 1500 120, 1700 120" stroke="#C2381F" stroke-width="6" fill="none"></path>
-  <path d="M -50 220 C 250 220, 340 420, 600 420 S 950 620, 1200 620 S 1450 780, 1700 780" stroke="#2B5FAD" stroke-width="6" fill="none"></path>
-  <path d="M -50 460 L 1700 460" stroke="#2F7B4F" stroke-width="6" fill="none"></path>
-  <path d="M 400 -50 L 400 950 M 1050 -50 L 1050 950" stroke="#E8A93B" stroke-width="6" fill="none"></path>
-  <circle cx="620" cy="520" r="12" fill="#FAFAF7" stroke="#1A1A1A" stroke-width="4"></circle>
-  <circle cx="1150" cy="300" r="12" fill="#FAFAF7" stroke="#1A1A1A" stroke-width="4"></circle>
-  <circle cx="400" cy="460" r="12" fill="#FAFAF7" stroke="#1A1A1A" stroke-width="4"></circle>
-  <circle cx="1050" cy="620" r="12" fill="#FAFAF7" stroke="#1A1A1A" stroke-width="4"></circle>
+<!-- live map: draws itself on load, and the line of the project you're on lights up -->
+<svg class="system-map map-live" id="system-map" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
+  <path data-line="red" pathLength="1" style="--d: 0" d="M -50 680 C 300 680, 380 520, 620 520 S 900 300, 1150 300 S 1500 120, 1700 120" stroke="#C2381F" stroke-width="6" fill="none"></path>
+  <path data-line="blue" pathLength="1" style="--d: 1" d="M -50 220 C 250 220, 340 420, 600 420 S 950 620, 1200 620 S 1450 780, 1700 780" stroke="#2B5FAD" stroke-width="6" fill="none"></path>
+  <path data-line="green" pathLength="1" style="--d: 2" d="M -50 460 L 1700 460" stroke="#2F7B4F" stroke-width="6" fill="none"></path>
+  <path data-line="yellow" pathLength="1" style="--d: 3" d="M 400 -50 L 400 950" stroke="#E8A93B" stroke-width="6" fill="none"></path>
+  <path data-line="yellow" pathLength="1" style="--d: 3.5" d="M 1050 -50 L 1050 950" stroke="#E8A93B" stroke-width="6" fill="none"></path>
+  <circle style="--d: 0" cx="620" cy="520" r="12" fill="#FAFAF7" stroke="#1A1A1A" stroke-width="4"></circle>
+  <circle style="--d: 1" cx="1150" cy="300" r="12" fill="#FAFAF7" stroke="#1A1A1A" stroke-width="4"></circle>
+  <circle style="--d: 2" cx="400" cy="460" r="12" fill="#FAFAF7" stroke="#1A1A1A" stroke-width="4"></circle>
+  <circle style="--d: 3" cx="1050" cy="620" r="12" fill="#FAFAF7" stroke="#1A1A1A" stroke-width="4"></circle>
 </svg>
 
 <header class="site-header">
@@ -174,6 +176,32 @@
     <a href="mailto:jett@jettm.dev">Email</a>
   </div>
 </footer>
+
+<script>
+(function () {
+  'use strict';
+  const map = document.getElementById('system-map');
+  const stations = document.querySelectorAll('.station');
+  if (!map || !stations.length) return;
+
+  const lineOf = (el) => (el.className.match(/\bline-(\w+)/) || [])[1] || '';
+  let pointed = '';    // line of the project under the pointer or keyboard focus
+
+  // all lines stay equal until a project is hovered or focused
+  function show() {
+    if (pointed) map.dataset.active = pointed;
+    else delete map.dataset.active;
+  }
+
+  stations.forEach((station) => {
+    const line = lineOf(station);
+    station.addEventListener('mouseenter', () => { pointed = line; show(); });
+    station.addEventListener('mouseleave', () => { pointed = ''; show(); });
+    station.addEventListener('focusin', () => { pointed = line; show(); });
+    station.addEventListener('focusout', () => { pointed = ''; show(); });
+  });
+})();
+</script>
 
 </body>
 </html>
