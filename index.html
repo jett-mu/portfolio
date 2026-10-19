@@ -2,126 +2,178 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>Jett M.</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Jett M.</title>
+<meta name="description" content="Jett M., a student in Toronto who builds simulators and transit tools: a GTFS parser, a GPU wind tunnel, and circuit and logic-gate simulators.">
+<meta name="theme-color" content="#FAFAF7">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://jettm.dev/">
+<meta property="og:title" content="Jett M.">
+<meta property="og:description" content="Student in Toronto. I build simulators and transit tools.">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Overpass:ital,wght@0,400;0,600;0,700;1,400&family=Overpass+Mono:wght@400;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<div class="page">
+<a class="skip-link" href="#main">Skip to content</a>
 
-  <svg class="hero-lines" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice">
-    <path d="M -50 680 C 300 680, 380 520, 620 520 S 900 300, 1150 300 S 1500 120, 1700 120" stroke="#D6432B" stroke-width="6" fill="none"></path>
-    <path d="M -50 220 C 250 220, 340 420, 600 420 S 950 620, 1200 620 S 1450 780, 1700 780" stroke="#2B5FAD" stroke-width="6" fill="none"></path>
-    <path d="M -50 460 L 1700 460" stroke="#2F7B4F" stroke-width="6" fill="none"></path>
-    <path d="M 400 -50 L 400 950 M 1050 -50 L 1050 950" stroke="#E8A93B" stroke-width="6" fill="none"></path>
-  </svg>
+<svg class="system-map" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
+  <path d="M -50 680 C 300 680, 380 520, 620 520 S 900 300, 1150 300 S 1500 120, 1700 120" stroke="#C2381F" stroke-width="6" fill="none"></path>
+  <path d="M -50 220 C 250 220, 340 420, 600 420 S 950 620, 1200 620 S 1450 780, 1700 780" stroke="#2B5FAD" stroke-width="6" fill="none"></path>
+  <path d="M -50 460 L 1700 460" stroke="#2F7B4F" stroke-width="6" fill="none"></path>
+  <path d="M 400 -50 L 400 950 M 1050 -50 L 1050 950" stroke="#E8A93B" stroke-width="6" fill="none"></path>
+  <circle cx="620" cy="520" r="12" fill="#FAFAF7" stroke="#1A1A1A" stroke-width="4"></circle>
+  <circle cx="1150" cy="300" r="12" fill="#FAFAF7" stroke="#1A1A1A" stroke-width="4"></circle>
+  <circle cx="400" cy="460" r="12" fill="#FAFAF7" stroke="#1A1A1A" stroke-width="4"></circle>
+  <circle cx="1050" cy="620" r="12" fill="#FAFAF7" stroke="#1A1A1A" stroke-width="4"></circle>
+</svg>
 
-  <!-- TOP BAR -->
-  <div class="topbar">
-    <div class="topbar-mark mono">JETTM.DEV</div>
-    <div class="topbar-nav">
-      <a href="projects.html">WORK</a>
-      <a href="https://blog.jettm.dev">BLOG</a>
-      <a href="contact/index.html">CONTACT</a>
-    </div>
-  </div>
+<header class="site-header">
+  <a class="wordmark" href="index.html">jettm.dev</a>
+  <nav class="site-nav" aria-label="Primary">
+    <a class="line-red" href="projects.html">Work</a>
+    <a class="line-blue" href="https://blog.jettm.dev">Blog</a>
+    <a class="line-green" href="contact/index.html">Contact</a>
+  </nav>
+</header>
 
-  <!-- MAIN -->
-  <div class="main">
+<main id="main" class="home">
 
-    <!-- HERO / ABOUT -->
-    <div class="hero-col">
-      <div class="hero-kicker mono">SOFTWARE / PORTFOLIO</div>
-      <h1 class="hero-title display">Jett M.</h1>
-      <p class="hero-sub">Student based in Toronto, Canada.</p>
+  <section class="intro" aria-labelledby="name">
+    <h1 class="intro-name" id="name">Jett M.</h1>
+    <p class="intro-lede">Student in Toronto, Canada. I build simulators and transit tools, mostly in C++ and the browser.</p>
 
-      <ul class="about-list">
-        <li>
-          <span class="about-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="7" cy="14.5" r="4"></circle>
-              <path d="M10.2 12 20 5l-2 6.5-7.3 3.2"></path>
-              <path d="M20 5l-4.3 8.5"></path>
-            </svg>
-          </span>
-          <span>Currently working on a <strong>GTFS Parser</strong>, an app to tell the bus time.</span>
-        </li>
-        <li>
-          <span class="about-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M12 21v-8"></path>
-              <path d="M12 13c0-4 3-6 7-6 0 4-3 7-7 6z"></path>
-              <path d="M12 13c0-3.2-2.2-5-6-5 0 3.2 2.4 5.6 6 5z"></path>
-            </svg>
-          </span>
-          <span>Currently learning <strong>competitive programming</strong> and advanced C++.</span>
-        </li>
-        <li>
-          <span class="about-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M4 5h16v10H8l-4 4V5z"></path>
-            </svg>
-          </span>
-          <span>Enjoy photography, mathematics, programming, robotics, video editing, aviation, and radio engineering (ham radio operator <strong>VA3NDE</strong>).</span>
-        </li>
+    <div class="dot-track" aria-hidden="true"></div>
+
+    <ul class="interests">
+      <li class="line-red">
+        <span class="interest-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="7" cy="14.5" r="4"></circle>
+            <path d="M10.2 12 20 5l-2 6.5-7.3 3.2"></path>
+            <path d="M20 5l-4.3 8.5"></path>
+          </svg>
+        </span>
+        <span>Currently working on a <strong>GTFS Parser</strong>, an app that tells you when the next bus is coming.</span>
+      </li>
+      <li class="line-green">
+        <span class="interest-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 21v-8"></path>
+            <path d="M12 13c0-4 3-6 7-6 0 4-3 7-7 6z"></path>
+            <path d="M12 13c0-3.2-2.2-5-6-5 0 3.2 2.4 5.6 6 5z"></path>
+          </svg>
+        </span>
+        <span>Currently learning <strong>competitive programming</strong> and advanced C++.</span>
+      </li>
+      <li class="line-blue">
+        <span class="interest-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 5h16v10H8l-4 4V5z"></path>
+          </svg>
+        </span>
+        <span>I also enjoy photography, mathematics, robotics, video editing, aviation and radio (ham callsign <strong>VA3NDE</strong>).</span>
+      </li>
+    </ul>
+
+    <div class="skills">
+      <span class="skills-label">Languages</span>
+      <ul class="tags">
+        <li>C++</li>
+        <li>Java</li>
+        <li>Python</li>
+        <li>SwiftUI</li>
+        <li>TypeScript</li>
+        <li>JavaScript</li>
+        <li>HTML/CSS</li>
       </ul>
-
-      <div class="skills">
-        <div class="skills-label mono">SKILLS</div>
-        <ol class="skills-list mono">
-          <li>C++</li>
-          <li>Java</li>
-          <li>Python</li>
-          <li>SwiftUI</li>
-          <li>HTML</li>
-          <li>CSS</li>
-          <li>TS</li>
-          <li>JS</li>
-        </ol>
-      </div>
-
-      <div class="hero-dot-track"><div class="hero-dot"></div></div>
-      <div class="hero-social">
-        <a class="btn btn-red" href="mailto:jett@jettm.dev" target="_blank" rel="noopener"><span class="btn-tag">EMAIL</span>jett@jettm.dev</a>
-        <a class="btn btn-blue" href="https://github.com/jett-mu" target="_blank" rel="noopener"><span class="btn-tag">GITHUB</span>@jett-mu</a>
-      </div>
     </div>
 
-    <!-- WORK -->
-    <div class="work-col cta-col" id="work">
-      <div class="work-heading">SELECTED WORK</div>
-      <div class="cta-body">
-        <h2 class="cta-title display">Projects</h2>
-        <p class="cta-sub">Demos, write-ups, and source code for the things I've built.</p>
-        <div class="cta-actions">
-          <a class="btn btn-cta" href="projects.html">
-            Projects
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
-          </a>
-          <a class="btn btn-cta cta-blue" href="https://blog.jettm.dev">
-            Blog
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
-          </a>
-          <a class="btn btn-cta cta-green" href="contact/index.html">
-            Contact
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
-          </a>
+    <div class="intro-links">
+      <a class="btn line-red" href="mailto:jett@jettm.dev"><span class="btn-tag">EMAIL</span>jett@jettm.dev</a>
+      <a class="btn line-blue" href="https://github.com/jett-mu" target="_blank" rel="noopener"><span class="btn-tag">GITHUB</span>@jett-mu</a>
+    </div>
+  </section>
+
+  <section class="lines" aria-labelledby="lines-title">
+    <div class="lines-head">
+      <h2 class="section-title" id="lines-title">Projects</h2>
+      <a class="text-link" href="projects.html">
+        All projects
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+      </a>
+    </div>
+
+    <ol class="stations">
+      <li class="station line-red" style="--i: 0">
+        <div>
+          <h3 class="station-name"><a href="writeups/gtfs-parser.html">GTFS Parser</a></h3>
+          <p class="station-desc">A C++ library that reads transit schedules and live GTFS feeds, plus a web app for departures, trips and bus positions.</p>
+          <p class="station-meta">C++ · Python · Transit data</p>
+          <div class="station-links">
+            <a class="mini-btn mini-btn-fill" href="https://gtfs.jettm.dev" target="_blank" rel="noopener">Live demo</a>
+            <a class="mini-btn" href="https://github.com/jett-mu/GTFS-Parser" target="_blank" rel="noopener">Code</a>
+          </div>
         </div>
-      </div>
-    </div>
+        <img class="station-shot" src="assets/gtfs-parser-480.webp" width="480" height="323" alt="" decoding="async">
+      </li>
 
+      <li class="station line-blue" style="--i: 1; --shot-pos: right top">
+        <div>
+          <h3 class="station-name"><a href="writeups/wind-tunnel.html">Wind Tunnel</a></h3>
+          <p class="station-desc">A GPU flow solver for NACA airfoils. Reshape the wing and watch lift, drag and pressure update live in the browser.</p>
+          <p class="station-meta">TypeScript · WebGL2 · Aerodynamics</p>
+          <div class="station-links">
+            <a class="mini-btn mini-btn-fill" href="https://windtunnel.jettm.dev" target="_blank" rel="noopener">Live demo</a>
+            <a class="mini-btn" href="https://github.com/jett-mu/windTunnel" target="_blank" rel="noopener">Code</a>
+          </div>
+        </div>
+        <img class="station-shot" src="assets/wind-tunnel-480.webp" width="480" height="323" alt="" decoding="async">
+      </li>
+
+      <li class="station line-yellow" style="--i: 2">
+        <div>
+          <h3 class="station-name"><a href="writeups/circuitwright.html">Circuitwright</a></h3>
+          <p class="station-desc">A circuit simulator. Wire up parts, run it, and probe voltages on a built-in oscilloscope.</p>
+          <p class="station-meta">Simulation · Electronics</p>
+          <div class="station-links">
+            <a class="mini-btn mini-btn-fill" href="https://circuitwright.jettm.dev" target="_blank" rel="noopener">Live demo</a>
+            <a class="mini-btn" href="https://github.com/jett-mu/circuitWright" target="_blank" rel="noopener">Code</a>
+          </div>
+        </div>
+        <img class="station-shot" src="assets/circuitwright-480.webp" width="480" height="323" alt="" decoding="async">
+      </li>
+
+      <li class="station line-green" style="--i: 3">
+        <div>
+          <h3 class="station-name"><a href="writeups/gatewright.html">Gatewright</a></h3>
+          <p class="station-desc">A digital logic sandbox. Drop in switches, clocks and gates, wire them together, and watch signals propagate.</p>
+          <p class="station-meta">Simulation · Digital logic</p>
+          <div class="station-links">
+            <a class="mini-btn mini-btn-fill" href="https://gatewright.jettm.dev" target="_blank" rel="noopener">Live demo</a>
+            <a class="mini-btn" href="https://github.com/jett-mu/logicGated" target="_blank" rel="noopener">Code</a>
+          </div>
+        </div>
+        <img class="station-shot" src="assets/gatewright-480.webp" width="480" height="323" alt="" decoding="async">
+      </li>
+    </ol>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <span>© 2026 Jett M.</span>
+  <div class="footer-links">
+    <a href="https://github.com/jett-mu" target="_blank" rel="noopener">GitHub</a>
+    <a href="mailto:jett@jettm.dev">Email</a>
   </div>
-
-  <!-- FOOTER -->
-  <div class="footer" id="contact">
-    <div class="footer-copy mono">JETTM.DEV</div>
-    <div class="footer-copy mono">© 2026</div>
-  </div>
-
-</div>
+</footer>
 
 </body>
 </html>

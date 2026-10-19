@@ -1,73 +1,83 @@
 <!DOCTYPE html>
-<html lang="en" class="contact-page">
+<html lang="en">
 <head>
 <meta charset="utf-8">
-<title>Contact · Jett M.</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contact · Jett M.</title>
+<meta name="description" content="Get in touch with Jett M. by email or on GitHub.">
+<meta name="theme-color" content="#FAFAF7">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://jettm.dev/contact/">
+<meta property="og:title" content="Contact · Jett M.">
+<meta property="og:description" content="Questions about a project, or just want to say hi?">
+<link rel="icon" href="../favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Overpass:ital,wght@0,400;0,600;0,700;1,400&family=Overpass+Mono:wght@400;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../style.css">
 </head>
 <body>
 
-<div class="page">
+<a class="skip-link" href="#main">Skip to content</a>
 
-  <svg class="hero-lines" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice">
-    <path d="M -50 680 C 300 680, 380 520, 620 520 S 900 300, 1150 300 S 1500 120, 1700 120" stroke="#D6432B" stroke-width="6" fill="none"></path>
-    <path d="M -50 220 C 250 220, 340 420, 600 420 S 950 620, 1200 620 S 1450 780, 1700 780" stroke="#2B5FAD" stroke-width="6" fill="none"></path>
-    <path d="M -50 460 L 1700 460" stroke="#2F7B4F" stroke-width="6" fill="none"></path>
-    <path d="M 400 -50 L 400 950 M 1050 -50 L 1050 950" stroke="#E8A93B" stroke-width="6" fill="none"></path>
-  </svg>
+<svg class="system-map" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
+  <path d="M -50 680 C 300 680, 380 520, 620 520 S 900 300, 1150 300 S 1500 120, 1700 120" stroke="#C2381F" stroke-width="6" fill="none"></path>
+  <path d="M -50 220 C 250 220, 340 420, 600 420 S 950 620, 1200 620 S 1450 780, 1700 780" stroke="#2B5FAD" stroke-width="6" fill="none"></path>
+  <path d="M -50 460 L 1700 460" stroke="#2F7B4F" stroke-width="6" fill="none"></path>
+  <path d="M 400 -50 L 400 950 M 1050 -50 L 1050 950" stroke="#E8A93B" stroke-width="6" fill="none"></path>
+  <circle cx="620" cy="520" r="12" fill="#FAFAF7" stroke="#1A1A1A" stroke-width="4"></circle>
+  <circle cx="1150" cy="300" r="12" fill="#FAFAF7" stroke="#1A1A1A" stroke-width="4"></circle>
+  <circle cx="400" cy="460" r="12" fill="#FAFAF7" stroke="#1A1A1A" stroke-width="4"></circle>
+  <circle cx="1050" cy="620" r="12" fill="#FAFAF7" stroke="#1A1A1A" stroke-width="4"></circle>
+</svg>
 
-  <!-- TOP BAR -->
-  <div class="topbar">
-    <a class="topbar-mark mono" href="../index.html">JETTM.DEV</a>
-    <div class="topbar-nav">
-      <a href="../index.html">HOME</a>
-      <a href="../projects.html">WORK</a>
-      <a href="https://blog.jettm.dev">BLOG</a>
-      <a href="index.html" aria-current="page">CONTACT</a>
-    </div>
+<header class="site-header">
+  <a class="wordmark" href="../index.html">jettm.dev</a>
+  <nav class="site-nav" aria-label="Primary">
+    <a class="line-red" href="../projects.html">Work</a>
+    <a class="line-blue" href="https://blog.jettm.dev">Blog</a>
+    <a class="line-green" href="index.html" aria-current="page">Contact</a>
+  </nav>
+</header>
+
+<main id="main" class="page-wrap">
+
+  <header class="page-head">
+    <h1 class="page-title">Get in touch</h1>
+    <p class="page-lede">Questions about a project, or just want to say hi? Email is the best way to reach me.</p>
+  </header>
+
+  <ul class="contact-list">
+    <li>
+      <a class="contact-row line-red" href="mailto:jett@jettm.dev">
+        <span class="contact-label">Email</span>
+        <span class="contact-value">jett@jettm.dev</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+      </a>
+    </li>
+    <li>
+      <a class="contact-row line-blue" href="https://github.com/jett-mu" target="_blank" rel="noopener">
+        <span class="contact-label">GitHub</span>
+        <span class="contact-value">@jett-mu</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+      </a>
+    </li>
+  </ul>
+
+  <p class="contact-note">Also on the air as <strong>VA3NDE</strong>.</p>
+
+</main>
+
+<footer class="site-footer">
+  <span>© 2026 Jett M.</span>
+  <div class="footer-links">
+    <a href="https://github.com/jett-mu" target="_blank" rel="noopener">GitHub</a>
+    <a href="mailto:jett@jettm.dev">Email</a>
   </div>
-
-  <!-- MAIN -->
-  <div class="main">
-
-    <!-- CONTACT -->
-    <div class="contact-col">
-      <div class="work-head-row">
-        <div class="work-heading">CONTACT</div>
-        <a class="work-back mono" href="../index.html">&larr; BACK</a>
-      </div>
-      <h1 class="cta-title display">Get in touch</h1>
-      <p class="cta-sub">Questions about a project, or just want to say hi? Email is the best way to reach me.</p>
-      <ul class="contact-list">
-        <li>
-          <a class="contact-row btn-red" href="mailto:jett@jettm.dev" target="_blank" rel="noopener">
-            <span class="btn-tag">EMAIL</span>
-            <span>jett@jettm.dev</span>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
-          </a>
-        </li>
-        <li>
-          <a class="contact-row btn-blue" href="https://github.com/jett-mu" target="_blank" rel="noopener">
-            <span class="btn-tag">GITHUB</span>
-            <span>@jett-mu</span>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
-          </a>
-        </li>
-      </ul>
-    </div>
-
-  </div>
-
-  <!-- FOOTER -->
-  <div class="footer">
-    <div class="footer-copy mono">JETTM.DEV</div>
-    <div class="footer-copy mono">© 2026</div>
-  </div>
-
-</div>
+</footer>
 
 </body>
 </html>

@@ -3,17 +3,25 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>GTFS.JETTM.DEV — System Map</title>
+<title>GTFS Parser · System Map</title>
+<meta name="description" content="A tour of GTFS Parser: a C++ library and web app that reads real transit schedules and live feeds.">
+<meta name="theme-color" content="#FAFAF7">
+<link rel="icon" href="../favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Overpass:wght@400;600;700&family=Overpass+Mono:wght@400;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
+<a class="portfolio-back" href="../projects.html">&larr; jettm.dev</a>
+
 <!-- HERO -->
 <div class="hero">
   <svg class="hero-map" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice">
-    <path d="M -50 680 C 300 680, 380 520, 620 520 S 900 300, 1150 300 S 1500 120, 1700 120" stroke="#D6432B" stroke-width="6" fill="none"></path>
+    <path d="M -50 680 C 300 680, 380 520, 620 520 S 900 300, 1150 300 S 1500 120, 1700 120" stroke="#C2381F" stroke-width="6" fill="none"></path>
     <path d="M -50 220 C 250 220, 340 420, 600 420 S 950 620, 1200 620 S 1450 780, 1700 780" stroke="#2B5FAD" stroke-width="6" fill="none"></path>
     <path d="M -50 460 L 1700 460" stroke="#2F7B4F" stroke-width="6" fill="none"></path>
     <path d="M 400 -50 L 400 950 M 1050 -50 L 1050 950" stroke="#E8A93B" stroke-width="6" fill="none"></path>
@@ -22,7 +30,7 @@
     <circle cx="400" cy="460" r="12" fill="#FAFAF7" stroke="#1A1A1A" stroke-width="4"></circle>
     <circle cx="1050" cy="620" r="12" fill="#FAFAF7" stroke="#1A1A1A" stroke-width="4"></circle>
   </svg>
-  <div class="hero-kicker">GTFS.JETTM.DEV — SYSTEM MAP</div>
+  <div class="hero-kicker">GTFS PARSER · SYSTEM MAP</div>
   <div class="hero-title">GTFS.JETTM.DEV</div>
   <div class="hero-sub">Real transit data, parsed and served, down to the minute.</div>
   <div class="hero-track">
@@ -34,10 +42,10 @@
 <div class="section">
   <div class="section-rail rail-ink"></div>
   <div class="section-body">
-    <div class="eyebrow" style="opacity:0.6;">WHAT IS GTFS</div>
+    <div class="eyebrow" style="color:#5C5C58;">WHAT IS GTFS</div>
     <div class="heading">The standard,<br>parsed properly</div>
     <p>
-      <a href="https://gtfs.org/documentation/schedule/reference/" target="_blank" rel="noopener" style="font-weight:600;">GTFS</a> (General Transit Feed Specification) is the standard transit agencies use worldwide to publish schedule and live vehicle data — the same format behind Google Maps and most trip planners. This project parses it directly: no database, no caching layer, just a C++ library scanning the raw <a href="https://github.com/google/transit" target="_blank" rel="noopener">GTFS Schedule</a> <span style="font-family:'IBM Plex Mono',monospace;">.txt</span> tables and GTFS Realtime <span style="font-family:'IBM Plex Mono',monospace;">.pb</span> protobuf feeds and answering queries straight off them.
+      <a href="https://gtfs.org/documentation/schedule/reference/" target="_blank" rel="noopener" style="font-weight:600;">GTFS</a> (General Transit Feed Specification) is the standard transit agencies use worldwide to publish schedule and live vehicle data — the same format behind Google Maps and most trip planners. This project parses it directly: no database, no caching layer, just a C++ library scanning the raw <a href="https://github.com/google/transit" target="_blank" rel="noopener">GTFS Schedule</a> <span style="font-family:'Overpass Mono',monospace;">.txt</span> tables and GTFS Realtime <span style="font-family:'Overpass Mono',monospace;">.pb</span> protobuf feeds and answering queries straight off them.
     </p>
     <div class="data-list">
       <div class="data-row">
@@ -71,18 +79,18 @@
   <div class="section-rail rail-red"></div>
   <div class="two-col">
     <div>
-      <div class="eyebrow" style="color:#D6432B;">STOP LOOKUP</div>
+      <div class="eyebrow" style="color:#C2381F;">STOP LOOKUP</div>
       <div class="heading">When's the<br>next one</div>
       <p>Search a stop by name or ID, pick a date, see upcoming departures. Merge stops across an intersection into one combined list.</p>
     </div>
     <div class="station-card">
       <div class="stop-card-header">
-        <svg width="60" height="14" viewBox="0 0 60 14"><line x1="2" y1="7" x2="58" y2="7" stroke="#D6432B" stroke-width="3"></line><circle cx="2" cy="7" r="4" fill="#D6432B"></circle><circle cx="58" cy="7" r="4" fill="#D6432B"></circle></svg>
+        <svg width="60" height="14" viewBox="0 0 60 14"><line x1="2" y1="7" x2="58" y2="7" stroke="#C2381F" stroke-width="3"></line><circle cx="2" cy="7" r="4" fill="#C2381F"></circle><circle cx="58" cy="7" r="4" fill="#C2381F"></circle></svg>
         <div class="stop-card-header-label">STP-4471 · MAIN ST &amp; 5TH AVE</div>
       </div>
 
       <div class="stop-row">
-        <div class="stop-row-route" style="background:#D6432B;">12</div>
+        <div class="stop-row-route" style="background:#C2381F;">12</div>
         <div class="stop-row-dest">Downtown Loop</div>
         <div class="stop-row-time">14:32</div>
         <div class="stop-row-delay" style="background:#2F7B4F;color:#FAFAF7;">ON TIME</div>
@@ -94,7 +102,7 @@
         <div class="stop-row-delay" style="background:#E8A93B;color:#1A1A1A;">+3 MIN</div>
       </div>
       <div class="stop-row">
-        <div class="stop-row-route" style="background:#D6432B;">12</div>
+        <div class="stop-row-route" style="background:#C2381F;">12</div>
         <div class="stop-row-dest">Downtown Loop</div>
         <div class="stop-row-time">14:47</div>
         <div class="stop-row-delay" style="background:#2F7B4F;color:#FAFAF7;">ON TIME</div>
@@ -248,7 +256,7 @@
   <div class="section-rail rail-yellow"></div>
   <div class="two-col">
     <div>
-      <div class="eyebrow" style="color:#E8A93B;">LIVE TRACKING</div>
+      <div class="eyebrow" style="color:#8C5A0A;">LIVE TRACKING</div>
       <div class="heading">See it<br>moving</div>
       <p>If a trip is running right now, watch its live position, speed, and delay update in real time.</p>
     </div>
@@ -312,7 +320,7 @@
 <div class="section">
   <div class="section-rail rail-ink"></div>
   <div class="section-body section-body--narrow">
-    <div class="eyebrow" style="opacity:0.6;">HOW IT'S BUILT</div>
+    <div class="eyebrow" style="color:#5C5C58;">HOW IT'S BUILT</div>
     <div class="heading" style="margin-bottom:30px;">Under the hood</div>
     <div class="data-list">
       <div class="build-row">
@@ -344,8 +352,8 @@
   <div class="terminus-kicker">TERMINUS</div>
   <div class="terminus-title">End of the line</div>
   <div class="terminus-links">
-    <a class="terminus-link" href="https://gtfs.jettm.dev/?token=GTFSPARSERCREATEDBYJETTMUCOPYRIGHT_a714a33fjdsf9hjw_2026_ALLRIGHTSRESERVED_AUTHORIZEDUSEONLY" target="_blank" rel="noopener">
-      <div class="terminus-link-icon"><div class="terminus-link-icon-dot" style="background:#D6432B;"></div></div>
+    <a class="terminus-link" href="https://gtfs.jettm.dev" target="_blank" rel="noopener">
+      <div class="terminus-link-icon"><div class="terminus-link-icon-dot" style="background:#C2381F;"></div></div>
       <div class="terminus-link-label">TRY IT LIVE</div>
     </a>
     <a class="terminus-link" href="https://github.com/jett-mu/gtfs-parser" target="_blank" rel="noopener">

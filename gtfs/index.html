@@ -3,9 +3,15 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>GTFS.JETTM.DEV — System Map</title>
+<title>GTFS Parser · System Map</title>
+<meta name="description" content="A scroll-through tour of GTFS Parser: a C++ library and web app that reads real transit schedules and live feeds.">
+<meta name="theme-color" content="#FAFAF7">
+<link rel="icon" href="../favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Overpass:wght@400;600;700&family=Overpass+Mono:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
   * { box-sizing: border-box; }
   html, body { margin: 0; padding: 0; background: #FAFAF7; color: #1A1A1A; }
@@ -16,6 +22,15 @@
     0% { transform: translateX(0); }
     100% { transform: translateX(180px); }
   }
+  .portfolio-back {
+    position: fixed; top: 16px; right: 16px; z-index: 10;
+    display: inline-flex; align-items: center; gap: 8px; min-height: 40px; padding: 0 14px;
+    font: 600 12px/1 'Overpass Mono', monospace; letter-spacing: 0.08em; text-transform: uppercase;
+    color: #1A1A1A; background: #FAFAF7; border: 1.5px solid #1A1A1A; box-shadow: 3px 3px 0 rgba(26,26,26,0.12);
+    transition: background 150ms ease, color 150ms ease;
+  }
+  .portfolio-back:hover { background: #1A1A1A; color: #FAFAF7; }
+  :focus-visible { outline: 2.5px solid #1A1A1A; outline-offset: 3px; }
   @media (max-width: 880px) {
     .two-col { grid-template-columns: 1fr !important; gap: 32px !important; }
     .gtfs-display { font-size: clamp(40px, 12vw, 72px) !important; }
@@ -28,13 +43,15 @@
 </head>
 <body>
 
-<div style="position:relative;font-family:'Inter',sans-serif;background:#FAFAF7;color:#1A1A1A;">
+<a class="portfolio-back" href="../projects.html">&larr; jettm.dev</a>
+
+<div style="position:relative;font-family:'Overpass',sans-serif;background:#FAFAF7;color:#1A1A1A;">
 
   <!-- HERO -->
   <div id="ref-hero" style="height:180vh;position:relative;">
     <div id="hero-sticky" style="position:sticky;top:0;height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;overflow:hidden;opacity:1;">
       <svg viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice" style="position:absolute;inset:0;width:100%;height:100%;opacity:0.16;">
-        <path d="M -50 680 C 300 680, 380 520, 620 520 S 900 300, 1150 300 S 1500 120, 1700 120" stroke="#D6432B" stroke-width="6" fill="none"></path>
+        <path d="M -50 680 C 300 680, 380 520, 620 520 S 900 300, 1150 300 S 1500 120, 1700 120" stroke="#C2381F" stroke-width="6" fill="none"></path>
         <path d="M -50 220 C 250 220, 340 420, 600 420 S 950 620, 1200 620 S 1450 780, 1700 780" stroke="#2B5FAD" stroke-width="6" fill="none"></path>
         <path d="M -50 460 L 1700 460" stroke="#2F7B4F" stroke-width="6" fill="none"></path>
         <path d="M 400 -50 L 400 950 M 1050 -50 L 1050 950" stroke="#E8A93B" stroke-width="6" fill="none"></path>
@@ -43,13 +60,13 @@
         <circle cx="400" cy="460" r="12" fill="#FAFAF7" stroke="#1A1A1A" stroke-width="4"></circle>
         <circle cx="1050" cy="620" r="12" fill="#FAFAF7" stroke="#1A1A1A" stroke-width="4"></circle>
       </svg>
-      <div style="font-family:'IBM Plex Mono',monospace;font-size:14px;letter-spacing:0.2em;color:#1A1A1A;opacity:0.55;margin-bottom:18px;position:relative;">GTFS.JETTM.DEV — SYSTEM MAP</div>
+      <div style="font-family:'Overpass Mono',monospace;font-size:14px;letter-spacing:0.2em;color:#1A1A1A;color:#5C5C58;margin-bottom:18px;position:relative;">GTFS PARSER · SYSTEM MAP</div>
       <div id="hero-headline" class="gtfs-display" style="font-family:'Oswald',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:-0.01em;font-size:clamp(64px,11vw,168px);line-height:0.95;text-align:center;transform:scale(1) translateY(0px);">GTFS.JETTM.DEV</div>
       <div id="hero-thesis" style="font-size:clamp(16px,2vw,22px);color:#1A1A1A;opacity:0;text-align:center;max-width:640px;margin-top:22px;padding:0 24px;transform:translateY(16px);">Real transit data, parsed and served, down to the minute.</div>
       <div id="hero-line" style="margin-top:56px;width:220px;height:2px;background:#1A1A1A;opacity:0.18;position:relative;transform:translateY(16px);">
-        <div style="position:absolute;top:-5px;left:0;width:12px;height:12px;border-radius:50%;background:#D6432B;animation:gtfsDotTravel 3.2s cubic-bezier(0.65,0,0.35,1) infinite alternate;"></div>
+        <div style="position:absolute;top:-5px;left:0;width:12px;height:12px;border-radius:50%;background:#C2381F;animation:gtfsDotTravel 3.2s cubic-bezier(0.65,0,0.35,1) infinite alternate;"></div>
       </div>
-      <a href="../gtfs-nonanimation/index.html" style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#1A1A1A;opacity:0.5;text-decoration:underline;margin-top:28px;">Prefer no animations?</a>
+      <a href="../gtfs-nonanimation/index.html" style="font-family:'Overpass Mono',monospace;font-size:12px;color:#1A1A1A;color:#5C5C58;text-decoration:underline;margin-top:28px;">Prefer no animations?</a>
     </div>
   </div>
 
@@ -60,10 +77,10 @@
         <div id="background-dot" style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%) scale(0.5);width:26px;height:26px;border-radius:50%;background:#FAFAF7;border:5px solid #1A1A1A;box-shadow:0 0 0 3px #1A1A1A, 0 0 0 6px #FAFAF7;"></div>
       </div>
       <div id="background-group" style="flex:1;display:flex;flex-direction:column;justify-content:center;padding:0 clamp(24px,6vw,90px);opacity:0;transform:translateY(40px);max-width:820px;">
-        <div style="font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:0.18em;color:#1A1A1A;opacity:0.6;font-weight:600;">WHAT IS GTFS</div>
+        <div style="font-family:'Overpass Mono',monospace;font-size:13px;letter-spacing:0.18em;color:#1A1A1A;color:#5C5C58;font-weight:600;">WHAT IS GTFS</div>
         <div style="font-family:'Oswald',sans-serif;font-weight:700;text-transform:uppercase;font-size:clamp(36px,5vw,64px);line-height:1;margin:16px 0 22px;">The standard,<br>parsed properly</div>
         <div style="font-size:17px;line-height:1.6;color:#1A1A1A;max-width:640px;margin-bottom:30px;">
-          <a href="https://gtfs.org/documentation/schedule/reference/" target="_blank" rel="noopener" style="font-weight:600;">GTFS</a> (General Transit Feed Specification) is the standard transit agencies use worldwide to publish schedule and live vehicle data — the same format behind Google Maps and most trip planners. This project parses it directly: no database, no caching layer, just a C++ library scanning the raw <a href="https://github.com/google/transit" target="_blank" rel="noopener">GTFS Schedule</a> <span style="font-family:'IBM Plex Mono',monospace;">.txt</span> tables and GTFS Realtime <span style="font-family:'IBM Plex Mono',monospace;">.pb</span> protobuf feeds and answering queries straight off them.
+          <a href="https://gtfs.org/documentation/schedule/reference/" target="_blank" rel="noopener" style="font-weight:600;">GTFS</a> (General Transit Feed Specification) is the standard transit agencies use worldwide to publish schedule and live vehicle data — the same format behind Google Maps and most trip planners. This project parses it directly: no database, no caching layer, just a C++ library scanning the raw <a href="https://github.com/google/transit" target="_blank" rel="noopener">GTFS Schedule</a> <span style="font-family:'Overpass Mono',monospace;">.txt</span> tables and GTFS Realtime <span style="font-family:'Overpass Mono',monospace;">.pb</span> protobuf feeds and answering queries straight off them.
         </div>
         <div style="border-top:1.5px solid #1A1A1A;">
           <div id="background-rows"></div>
@@ -76,19 +93,19 @@
   <!-- STATION: STOP LOOKUP -->
   <div id="ref-stop" style="height:230vh;position:relative;">
     <div style="position:sticky;top:0;height:100vh;display:flex;">
-      <div style="width:44px;flex-shrink:0;background:#D6432B;position:relative;">
-        <div id="stop-dot" style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%) scale(0.5);width:26px;height:26px;border-radius:50%;background:#FAFAF7;border:5px solid #D6432B;box-shadow:0 0 0 3px #D6432B, 0 0 0 6px #FAFAF7;"></div>
+      <div style="width:44px;flex-shrink:0;background:#C2381F;position:relative;">
+        <div id="stop-dot" style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%) scale(0.5);width:26px;height:26px;border-radius:50%;background:#FAFAF7;border:5px solid #C2381F;box-shadow:0 0 0 3px #C2381F, 0 0 0 6px #FAFAF7;"></div>
       </div>
       <div id="stop-group" class="two-col" style="flex:1;display:grid;grid-template-columns:1.1fr 1fr;gap:80px;align-items:center;padding:0 clamp(24px,6vw,90px);opacity:0;transform:translateY(40px);width:100%;">
         <div>
-          <div style="font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:0.18em;color:#D6432B;font-weight:600;">STOP LOOKUP</div>
+          <div style="font-family:'Overpass Mono',monospace;font-size:13px;letter-spacing:0.18em;color:#C2381F;font-weight:600;">STOP LOOKUP</div>
           <div style="font-family:'Oswald',sans-serif;font-weight:700;text-transform:uppercase;font-size:clamp(36px,5vw,64px);line-height:1;margin:16px 0 22px;">When's the<br>next one</div>
           <div style="font-size:17px;line-height:1.6;max-width:420px;color:#1A1A1A;">Search a stop by name or ID, pick a date, see upcoming departures. Merge stops across an intersection into one combined list.</div>
         </div>
         <div class="station-card" style="background:#FAFAF7;border:1.5px solid #1A1A1A;padding:24px;box-shadow:6px 6px 0 rgba(26,26,26,0.08);">
           <div style="display:flex;align-items:center;gap:8px;margin-bottom:14px;">
-            <svg width="60" height="14" viewBox="0 0 60 14"><line x1="2" y1="7" x2="58" y2="7" stroke="#D6432B" stroke-width="3"></line><circle cx="2" cy="7" r="4" fill="#D6432B"></circle><circle cx="58" cy="7" r="4" fill="#D6432B"></circle></svg>
-            <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.1em;opacity:0.6;">STP-4471 · MAIN ST &amp; 5TH AVE</div>
+            <svg width="60" height="14" viewBox="0 0 60 14"><line x1="2" y1="7" x2="58" y2="7" stroke="#C2381F" stroke-width="3"></line><circle cx="2" cy="7" r="4" fill="#C2381F"></circle><circle cx="58" cy="7" r="4" fill="#C2381F"></circle></svg>
+            <div style="font-family:'Overpass Mono',monospace;font-size:12px;letter-spacing:0.1em;color:#5C5C58;">STP-4471 · MAIN ST &amp; 5TH AVE</div>
           </div>
           <div id="stop-rows"></div>
         </div>
@@ -104,12 +121,12 @@
       </div>
       <div id="trip-group" class="two-col" style="flex:1;display:grid;grid-template-columns:1.1fr 1fr;gap:80px;align-items:center;padding:0 clamp(24px,6vw,90px);opacity:0;transform:translateY(40px);width:100%;">
         <div>
-          <div style="font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:0.18em;color:#2B5FAD;font-weight:600;">TRIP &amp; ROUTE LOOKUP</div>
+          <div style="font-family:'Overpass Mono',monospace;font-size:13px;letter-spacing:0.18em;color:#2B5FAD;font-weight:600;">TRIP &amp; ROUTE LOOKUP</div>
           <div style="font-family:'Oswald',sans-serif;font-weight:700;text-transform:uppercase;font-size:clamp(36px,5vw,64px);line-height:1;margin:16px 0 22px;">Follow the<br>whole trip</div>
           <div style="font-size:17px;line-height:1.6;max-width:420px;color:#1A1A1A;">Look up a trip by ID, or search a route to see every trip running that day, stop by stop.</div>
         </div>
         <div class="station-card" style="background:#FAFAF7;border:1.5px solid #1A1A1A;padding:24px;box-shadow:6px 6px 0 rgba(26,26,26,0.08);">
-          <div style="font-family:'IBM Plex Mono',monospace;font-size:16px;font-weight:600;margin-bottom:2px;">T-220148</div>
+          <div style="font-family:'Overpass Mono',monospace;font-size:16px;font-weight:600;margin-bottom:2px;">T-220148</div>
           <div style="font-size:13px;color:#2B5FAD;font-weight:600;margin-bottom:18px;">ROUTE 12 — DOWNTOWN</div>
           <div style="position:relative;padding-left:6px;">
             <div style="position:absolute;left:6px;top:6px;bottom:6px;width:3px;background:rgba(43,95,173,0.2);"></div>
@@ -130,15 +147,15 @@
       </div>
       <div id="discover-group" class="two-col" style="flex:1;display:grid;grid-template-columns:1.1fr 1fr;gap:80px;align-items:center;padding:0 clamp(24px,6vw,90px);opacity:0;transform:translateY(40px);width:100%;">
         <div>
-          <div style="font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:0.18em;color:#2F7B4F;font-weight:600;">DISCOVER</div>
+          <div style="font-family:'Overpass Mono',monospace;font-size:13px;letter-spacing:0.18em;color:#2F7B4F;font-weight:600;">DISCOVER</div>
           <div style="font-family:'Oswald',sans-serif;font-weight:700;text-transform:uppercase;font-size:clamp(36px,5vw,64px);line-height:1;margin:16px 0 22px;">Find what's<br>nearby</div>
           <div style="font-size:17px;line-height:1.6;max-width:420px;color:#1A1A1A;">Type coordinates or click the map to find the nearest stops around any point.</div>
         </div>
         <div class="station-card" style="background:#FAFAF7;border:1.5px solid #1A1A1A;padding:24px;box-shadow:6px 6px 0 rgba(26,26,26,0.08);">
-          <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;font-family:'IBM Plex Mono',monospace;font-size:12px;margin-bottom:14px;">
-            <span style="letter-spacing:0.1em;opacity:0.55;">QUERY</span>
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;font-family:'Overpass Mono',monospace;font-size:12px;margin-bottom:14px;">
+            <span style="letter-spacing:0.1em;color:#5C5C58;">QUERY</span>
             <span style="font-weight:600;">43.6426, -79.3871</span>
-            <span style="padding:2px 8px;border-radius:10px;background:#2F7B4F;color:#FAFAF7;font-size:10px;font-weight:600;letter-spacing:0.08em;">r ≤ 1.2 KM</span>
+            <span style="padding:2px 8px;border-radius:10px;background:#2F7B4F;color:#FAFAF7;font-size:11px;font-weight:600;letter-spacing:0.08em;">r ≤ 1.2 KM</span>
           </div>
           <div style="position:relative;width:100%;aspect-ratio:340/249;overflow:hidden;border:1px solid rgba(26,26,26,0.15);margin-bottom:18px;">
             <div style="position:absolute;left:-12.912%;top:-0.402%;width:125.235%;height:128.273%;display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:repeat(3,1fr);filter:grayscale(1) brightness(1.1) contrast(0.92);">
@@ -162,9 +179,9 @@
             </svg>
             <div id="discover-pins" style="position:absolute;inset:0;"></div>
             <div style="position:absolute;left:50%;top:50%;width:12px;height:12px;border-radius:50%;background:#1A1A1A;box-shadow:0 0 0 4px rgba(26,26,26,0.14);transform:translate(-6px,-6px);"></div>
-            <div style="position:absolute;right:6px;bottom:5px;font-family:'IBM Plex Mono',monospace;font-size:9px;background:rgba(250,250,247,0.82);padding:1px 5px;">© OSM</div>
+            <div style="position:absolute;right:6px;bottom:5px;font-family:'Overpass Mono',monospace;font-size:10px;background:rgba(250,250,247,0.9);padding:1px 5px;">© OSM</div>
           </div>
-          <div style="display:flex;justify-content:space-between;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.12em;opacity:0.5;padding-bottom:6px;">
+          <div style="display:flex;justify-content:space-between;font-family:'Overpass Mono',monospace;font-size:11px;letter-spacing:0.12em;color:#5C5C58;padding-bottom:6px;">
             <span>NEAREST STOPS</span>
             <span>DISTANCE</span>
           </div>
@@ -182,7 +199,7 @@
       </div>
       <div id="live-group" class="two-col" style="flex:1;display:grid;grid-template-columns:1.1fr 1fr;gap:80px;align-items:center;padding:0 clamp(24px,6vw,90px);opacity:0;transform:translateY(40px);width:100%;">
         <div>
-          <div style="font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:0.18em;color:#E8A93B;font-weight:600;">LIVE TRACKING</div>
+          <div style="font-family:'Overpass Mono',monospace;font-size:13px;letter-spacing:0.18em;color:#8C5A0A;font-weight:600;">LIVE TRACKING</div>
           <div style="font-family:'Oswald',sans-serif;font-weight:700;text-transform:uppercase;font-size:clamp(36px,5vw,64px);line-height:1;margin:16px 0 22px;">See it<br>moving</div>
           <div style="font-size:17px;line-height:1.6;max-width:420px;color:#1A1A1A;">If a trip is running right now, watch its live position, speed, and delay update in real time.</div>
         </div>
@@ -233,11 +250,11 @@
             </div>
           </div>
           <div style="display:flex;align-items:baseline;gap:10px;margin-top:14px;margin-bottom:14px;">
-            <div id="live-speed" style="font-family:'IBM Plex Mono',monospace;font-size:36px;font-weight:600;">0.0</div>
-            <div style="font-family:'IBM Plex Mono',monospace;font-size:14px;opacity:0.6;">KM</div>
+            <div id="live-speed" style="font-family:'Overpass Mono',monospace;font-size:36px;font-weight:600;">0.0</div>
+            <div style="font-family:'Overpass Mono',monospace;font-size:14px;color:#5C5C58;">KM</div>
           </div>
-          <div style="display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:600;padding:3px 10px;border-radius:12px;background:#2F7B4F;color:#FAFAF7;margin-bottom:14px;">ON TIME</div>
-          <div style="font-family:'IBM Plex Mono',monospace;font-size:13px;opacity:0.7;">TTC LINE 1 · FULL ALIGNMENT</div>
+          <div style="display:inline-block;font-family:'Overpass Mono',monospace;font-size:11px;font-weight:600;padding:3px 10px;border-radius:12px;background:#2F7B4F;color:#FAFAF7;margin-bottom:14px;">ON TIME</div>
+          <div style="font-family:'Overpass Mono',monospace;font-size:13px;color:#5C5C58;">TTC LINE 1 · FULL ALIGNMENT</div>
         </div>
       </div>
     </div>
@@ -250,7 +267,7 @@
         <div id="build-dot" style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%) scale(0.5);width:26px;height:26px;border-radius:50%;background:#FAFAF7;border:5px solid #1A1A1A;box-shadow:0 0 0 3px #1A1A1A, 0 0 0 6px #FAFAF7;"></div>
       </div>
       <div id="build-group" style="flex:1;display:flex;flex-direction:column;justify-content:center;padding:0 clamp(24px,6vw,90px);opacity:0;transform:translateY(40px);max-width:760px;">
-        <div style="font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:0.18em;color:#1A1A1A;opacity:0.6;font-weight:600;">HOW IT'S BUILT</div>
+        <div style="font-family:'Overpass Mono',monospace;font-size:13px;letter-spacing:0.18em;color:#1A1A1A;color:#5C5C58;font-weight:600;">HOW IT'S BUILT</div>
         <div style="font-family:'Oswald',sans-serif;font-weight:700;text-transform:uppercase;font-size:clamp(36px,5vw,64px);line-height:1;margin:16px 0 30px;">Under the hood</div>
         <div style="border-top:1.5px solid #1A1A1A;">
           <div id="build-rows"></div>
@@ -262,24 +279,24 @@
   <!-- END OF THE LINE -->
   <div id="ref-end" style="height:130vh;position:relative;">
     <div style="position:sticky;top:0;height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:0 24px;">
-      <div style="font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:0.18em;opacity:0.55;margin-bottom:14px;">TERMINUS</div>
+      <div style="font-family:'Overpass Mono',monospace;font-size:13px;letter-spacing:0.18em;color:#5C5C58;margin-bottom:14px;">TERMINUS</div>
       <div style="font-family:'Oswald',sans-serif;font-weight:700;text-transform:uppercase;font-size:clamp(40px,7vw,96px);line-height:1;margin-bottom:56px;">End of the line</div>
       <div style="display:flex;gap:64px;flex-wrap:wrap;justify-content:center;margin-bottom:64px;">
-        <a href="https://gtfs.jettm.dev/?token=GTFSPARSERCREATEDBYJETTMUCOPYRIGHT_a714a33fjdsf9hjw_2026_ALLRIGHTSRESERVED_AUTHORIZEDUSEONLY" target="_blank" rel="noopener" style="display:flex;flex-direction:column;align-items:center;gap:16px;color:#1A1A1A;">
+        <a href="https://gtfs.jettm.dev" target="_blank" rel="noopener" style="display:flex;flex-direction:column;align-items:center;gap:16px;color:#1A1A1A;">
           <div style="width:46px;height:46px;border-radius:50%;border:3px solid #1A1A1A;display:flex;align-items:center;justify-content:center;">
-            <div style="width:18px;height:18px;border-radius:50%;background:#D6432B;"></div>
+            <div style="width:18px;height:18px;border-radius:50%;background:#C2381F;"></div>
           </div>
-          <div style="font-family:'IBM Plex Mono',monospace;font-size:14px;font-weight:600;letter-spacing:0.08em;">TRY IT LIVE</div>
+          <div style="font-family:'Overpass Mono',monospace;font-size:14px;font-weight:600;letter-spacing:0.08em;">TRY IT LIVE</div>
         </a>
         <a href="https://github.com/jett-mu/gtfs-parser" target="_blank" rel="noopener" style="display:flex;flex-direction:column;align-items:center;gap:16px;color:#1A1A1A;">
           <div style="width:46px;height:46px;border-radius:50%;border:3px solid #1A1A1A;display:flex;align-items:center;justify-content:center;">
             <div style="width:18px;height:18px;border-radius:50%;background:#2B5FAD;"></div>
           </div>
-          <div style="font-family:'IBM Plex Mono',monospace;font-size:14px;font-weight:600;letter-spacing:0.08em;">VIEW THE CODE</div>
+          <div style="font-family:'Overpass Mono',monospace;font-size:14px;font-weight:600;letter-spacing:0.08em;">VIEW THE CODE</div>
         </a>
       </div>
       <div style="width:220px;height:2px;background:#1A1A1A;opacity:0.2;margin-bottom:28px;"></div>
-      <div style="font-size:14px;opacity:0.6;">GTFS.JETTM.DEV, an independent project.</div>
+      <div style="font-size:14px;color:#5C5C58;">GTFS.JETTM.DEV, an independent project.</div>
     </div>
   </div>
 
@@ -364,9 +381,9 @@
   }
 
   const stopRowData = [
-    { route: '12', dest: 'Downtown Loop', time: '14:32', delay: 'ON TIME', delayBg: '#2F7B4F', delayFg: '#FAFAF7', color: '#D6432B' },
+    { route: '12', dest: 'Downtown Loop', time: '14:32', delay: 'ON TIME', delayBg: '#2F7B4F', delayFg: '#FAFAF7', color: '#C2381F' },
     { route: '4', dest: 'Riverside', time: '14:41', delay: '+3 MIN', delayBg: '#E8A93B', delayFg: '#1A1A1A', color: '#2B5FAD' },
-    { route: '12', dest: 'Downtown Loop', time: '14:47', delay: 'ON TIME', delayBg: '#2F7B4F', delayFg: '#FAFAF7', color: '#D6432B' },
+    { route: '12', dest: 'Downtown Loop', time: '14:47', delay: 'ON TIME', delayBg: '#2F7B4F', delayFg: '#FAFAF7', color: '#C2381F' },
     { route: '9', dest: 'North Terminal', time: '15:02', delay: '+1 MIN', delayBg: '#E8A93B', delayFg: '#1A1A1A', color: '#2F7B4F' },
   ];
 
@@ -407,16 +424,21 @@
     return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
   }
 
+  const reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  // with reduced motion there is no scroll choreography: every station is
+  // drawn once, fully visible, at a fixed mid-scroll snapshot
+  const at = reduced ? () => 0.5 : prog;
+
   function render() {
     const p = {
-      hero: prog(els.refHero),
-      background: prog(els.refBackground),
-      stop: prog(els.refStop),
-      trip: prog(els.refTrip),
-      discover: prog(els.refDiscover),
-      live: prog(els.refLive),
-      build: prog(els.refBuild),
-      end: prog(els.refEnd),
+      hero: reduced ? 0.4 : prog(els.refHero),
+      background: at(els.refBackground),
+      stop: at(els.refStop),
+      trip: at(els.refTrip),
+      discover: at(els.refDiscover),
+      live: at(els.refLive),
+      build: at(els.refBuild),
+      end: at(els.refEnd),
     };
 
     // HERO
@@ -435,12 +457,12 @@
     els.backgroundDot.style.transform = `translate(-50%,-50%) scale(${background.dotScale})`;
     els.backgroundRows.innerHTML = backgroundRowData.map((b, i) => `
       <div style="display:flex;align-items:baseline;gap:18px;padding:16px 0;border-bottom:1.5px solid #1A1A1A;opacity:${background.rows[i].opacity};transform:${background.rows[i].transform};">
-        <div style="font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:600;width:130px;flex-shrink:0;letter-spacing:0.04em;">${esc(b.label)}</div>
+        <div style="font-family:'Overpass Mono',monospace;font-size:13px;font-weight:600;width:130px;flex-shrink:0;letter-spacing:0.04em;">${esc(b.label)}</div>
         <div style="font-size:15px;color:#1A1A1A;line-height:1.5;">${esc(b.desc)}</div>
       </div>`).join('');
     const reqOpacity = Math.min(1, Math.max(0, (background.pathProgress - 0.3) * 2.5));
     els.backgroundReqs.innerHTML = backgroundReqData.map((label) => `
-      <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:600;letter-spacing:0.04em;padding:6px 12px;border:1.5px solid #1A1A1A;opacity:${reqOpacity};">${esc(label)}</div>`).join('');
+      <div style="font-family:'Overpass Mono',monospace;font-size:12px;font-weight:600;letter-spacing:0.04em;padding:6px 12px;border:1.5px solid #1A1A1A;opacity:${reqOpacity};">${esc(label)}</div>`).join('');
 
     // STOP
     const stop = station(p.stop, [0.15, 0.23, 0.31, 0.39]);
@@ -449,10 +471,10 @@
     els.stopDot.style.transform = `translate(-50%,-50%) scale(${stop.dotScale})`;
     els.stopRows.innerHTML = stopRowData.map((r, i) => `
       <div style="display:flex;align-items:center;gap:14px;padding:10px 0;border-top:1px solid rgba(26,26,26,0.12);opacity:${stop.rows[i].opacity};transform:${stop.rows[i].transform};">
-        <div style="width:34px;height:24px;border-radius:3px;background:${r.color};color:#FAFAF7;font-family:'IBM Plex Mono',monospace;font-weight:600;font-size:13px;display:flex;align-items:center;justify-content:center;">${esc(r.route)}</div>
+        <div style="width:34px;height:24px;border-radius:3px;background:${r.color};color:#FAFAF7;font-family:'Overpass Mono',monospace;font-weight:600;font-size:13px;display:flex;align-items:center;justify-content:center;">${esc(r.route)}</div>
         <div style="flex:1;font-size:15px;">${esc(r.dest)}</div>
-        <div style="font-family:'IBM Plex Mono',monospace;font-size:15px;font-weight:600;">${esc(r.time)}</div>
-        <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:600;padding:3px 8px;border-radius:12px;background:${r.delayBg};color:${r.delayFg};white-space:nowrap;">${esc(r.delay)}</div>
+        <div style="font-family:'Overpass Mono',monospace;font-size:15px;font-weight:600;">${esc(r.time)}</div>
+        <div style="font-family:'Overpass Mono',monospace;font-size:11px;font-weight:600;padding:3px 8px;border-radius:12px;background:${r.delayBg};color:${r.delayFg};white-space:nowrap;">${esc(r.delay)}</div>
       </div>`).join('');
 
     // TRIP
@@ -469,8 +491,8 @@
       return `
       <div style="display:flex;align-items:center;justify-content:space-between;padding:10px 0 10px 24px;font-size:14px;position:relative;opacity:${trip.rows[i].opacity};">
         <div style="position:absolute;left:1.5px;top:50%;width:9px;height:9px;border-radius:50%;background:${dotBg};border:2.5px solid ${dotBorder};transform:translate(-4.5px,-4.5px);transition:background 0.3s ease, border-color 0.3s ease;"></div>
-        <span style="font-family:'IBM Plex Mono',monospace;opacity:0.7;">${esc(s.id)}</span>
-        <span style="font-family:'IBM Plex Mono',monospace;font-weight:600;color:#1A1A1A;opacity:${timeOpacity};transition:opacity 0.3s ease;">${esc(s.time)}</span>
+        <span style="font-family:'Overpass Mono',monospace;color:#5C5C58;">${esc(s.id)}</span>
+        <span style="font-family:'Overpass Mono',monospace;font-weight:600;color:#1A1A1A;opacity:${timeOpacity};transition:opacity 0.3s ease;">${esc(s.time)}</span>
       </div>`;
     }).join('');
     const tripDotTop = `${tripStopData.length > 1 ? (tripCurrentIdx / (tripStopData.length - 1)) * 82 : 0}%`;
@@ -493,7 +515,7 @@
           <span style="width:7px;height:7px;border-radius:50%;background:${dot};flex-shrink:0;"></span>
           <span style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">${esc(s.name)}</span>
         </span>
-        <span style="font-family:'IBM Plex Mono',monospace;font-weight:600;flex-shrink:0;">${esc(s.dist)}</span>
+        <span style="font-family:'Overpass Mono',monospace;font-weight:600;flex-shrink:0;">${esc(s.dist)}</span>
       </div>`;
     }).join('');
     els.discoverPins.innerHTML = discoverStopData.map((s, i) => {
@@ -537,7 +559,7 @@
     els.buildRows.innerHTML = buildRowData.map((b, i) => `
       <div style="display:flex;align-items:center;gap:18px;padding:16px 0;border-bottom:1.5px solid #1A1A1A;opacity:${build.rows[i].opacity};transform:${build.rows[i].transform};">
         <div style="width:14px;height:14px;background:${b.color};flex-shrink:0;"></div>
-        <div style="font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:600;width:110px;flex-shrink:0;">${esc(b.label)}</div>
+        <div style="font-family:'Overpass Mono',monospace;font-size:13px;font-weight:600;width:110px;flex-shrink:0;">${esc(b.label)}</div>
         <div style="font-size:15px;color:#1A1A1A;">${esc(b.desc)}</div>
       </div>`).join('');
   }
@@ -548,7 +570,6 @@
     raf = requestAnimationFrame(() => { raf = null; render(); });
   }
 
-  const reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if (reduced) {
     els.heroSticky.style.opacity = 1;
     render();
