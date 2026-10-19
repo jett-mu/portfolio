@@ -392,7 +392,9 @@ a:hover { color: var(--ink); }
 
 .work-actions {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  /* one equal column per button, so cards without a showcase split 50/50 */
+  grid-auto-flow: column;
+  grid-auto-columns: 1fr;
   border-top: 1.5px solid var(--ink);
 }
 
@@ -488,6 +490,67 @@ a:hover { color: var(--ink); }
 
 .btn-cta:hover svg { transform: translateX(3px); }
 
+.cta-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: clamp(10px, 1.4vw, 16px);
+}
+
+.btn.btn-cta.cta-blue:hover  { background: var(--blue);  border-color: var(--blue); }
+.btn.btn-cta.cta-green:hover { background: var(--green); border-color: var(--green); }
+
+/* ---------- CONTACT PAGE ---------- */
+
+.contact-page .main { grid-template-columns: 1fr; }
+
+.contact-col {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: clamp(16px, 2.5vh, 26px) clamp(20px, 4vw, 56px);
+  min-height: 0;
+}
+
+.contact-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  max-width: 560px;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(10px, 1.6vh, 14px);
+}
+
+.contact-row {
+  display: grid;
+  grid-template-columns: clamp(70px, 8vw, 96px) 1fr auto;
+  align-items: center;
+  gap: 12px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: clamp(13px, 1.3vw, 16px);
+  font-weight: 600;
+  color: var(--ink);
+  background: var(--paper);
+  border: 1.5px solid var(--ink);
+  padding: clamp(12px, 1.8vh, 16px) clamp(14px, 1.8vw, 20px);
+  box-shadow: 5px 5px 0 rgba(26,26,26,0.1);
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease, color 0.15s ease;
+}
+
+.contact-row:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 7px 7px 0 rgba(26,26,26,0.14);
+  color: var(--paper);
+}
+
+.contact-row svg { width: 1.1em; height: 1.1em; transition: transform 0.15s ease; }
+.contact-row:hover svg { transform: translateX(3px); }
+
+.contact-row.btn-red   { border-color: var(--red); }
+.contact-row.btn-blue  { border-color: var(--blue); }
+.contact-row.btn-red:hover  { background: var(--red); }
+.contact-row.btn-blue:hover { background: var(--blue); }
+
 /* ---------- PROJECTS PAGE ---------- */
 
 a.topbar-mark { color: var(--ink); }
@@ -565,7 +628,6 @@ html.projects-page, .projects-page body { height: auto; overflow: auto; }
   .work-col { padding: 24px clamp(20px,6vw,40px) 32px; }
   .work-grid { grid-auto-rows: auto; }
   .work-body { grid-template-columns: 1fr; grid-template-rows: auto auto; }
-  .work-actions { grid-template-columns: 1fr 1fr 1fr; }
   .work-thumb { border-right: none; border-bottom: 1.5px solid var(--ink); min-height: 160px; }
   .work-card.c-red .work-thumb    { border-right-color: transparent; border-bottom-color: var(--red); }
   .work-card.c-blue .work-thumb   { border-right-color: transparent; border-bottom-color: var(--blue); }
