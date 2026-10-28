@@ -7,7 +7,7 @@ brand
 Recruiters, admissions readers, classmates and other builders who land on jettm.dev from a resume, GitHub or a shared link. They skim on a laptop between other tabs or on a phone on transit, and decide in under a minute whether the work is worth opening.
 
 ## Product Purpose
-Personal portfolio for Jett M., a student in Toronto who builds simulators and transit tools (GTFS Parser, Wind Tunnel, Circuitwright, Gatewright). It should get a visitor from "who is this" to "open the live demo" fast, and give each project room for a showcase and a write-up.
+Personal portfolio for Jett M., a student in Toronto who builds simulators and tools (GTFS Parser, Wind Tunnel, Circuitwright, Gatewright, BikeTool). It should get a visitor from "who is this" to "open the live demo" fast, and give each project room for a showcase and a write-up.
 
 ## Brand Personality
 Precise, curious, quietly confident. A student engineer who ships real, working things and explains them plainly. Not loud, not corporate.
@@ -20,7 +20,7 @@ Precise, curious, quietly confident. A student engineer who ships real, working 
 ## Design Principles
 1. The work leads: every screen points at a live demo, the code, or a write-up within one click.
 2. One family, real contrast: Raleway carries the whole site through weight and size, not extra typefaces.
-3. Four project colors are the identity: red, blue, yellow and green each belong to one project and are used consistently wherever that project appears.
+3. Project colors are the identity: red, blue, yellow, green and purple each belong to one project and are used consistently wherever that project appears.
 4. Motion explains, it doesn't decorate: animation shows data moving (a bus, a trip, a search radius) or ties a project to its color.
 5. Plain, specific copy: say what the thing does.
 

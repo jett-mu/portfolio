@@ -25,6 +25,7 @@
   --blue: #2B5FAD;     --blue-text: #2B5FAD;     --on-blue: #FFFFFF;
   --yellow: #E8A93B;   --yellow-text: #8C5A0A;   --on-yellow: oklch(0.2 0.015 260);
   --green: #2F7B4F;    --green-text: #2F7B4F;    --on-green: #FFFFFF;
+  --purple: #6B46B0;   --purple-text: #6B46B0;   --on-purple: #FFFFFF;
 
   --font: 'Raleway', system-ui, sans-serif;
   --font-code: ui-monospace,  /* taste-skill-ignore: real code only (.prose code/pre) */
@@ -60,6 +61,7 @@
     --blue: oklch(0.7 0.12 255);     --blue-text: oklch(0.77 0.11 255);    --on-blue: oklch(0.17 0.012 260);
     --yellow: oklch(0.82 0.14 80);   --yellow-text: oklch(0.85 0.13 80);   --on-yellow: oklch(0.17 0.012 260);
     --green: oklch(0.7 0.13 155);    --green-text: oklch(0.77 0.12 155);   --on-green: oklch(0.17 0.012 260);
+    --purple: oklch(0.7 0.14 300);   --purple-text: oklch(0.78 0.12 300);  --on-purple: oklch(0.17 0.012 260);
   }
 }
 
@@ -68,6 +70,7 @@
 .line-blue   { --line: var(--blue);   --line-text: var(--blue-text);   --on-line: var(--on-blue); }
 .line-yellow { --line: var(--yellow); --line-text: var(--yellow-text); --on-line: var(--on-yellow); }
 .line-green  { --line: var(--green);  --line-text: var(--green-text);  --on-line: var(--on-green); }
+.line-purple { --line: var(--purple); --line-text: var(--purple-text); --on-line: var(--on-purple); }
 .line-ink    { --line: var(--ink);    --line-text: var(--ink);         --on-line: var(--bg); }
 
 /* ---------- BASE ---------- */
@@ -460,7 +463,8 @@ main { flex: 1; width: 100%; }
 .band[data-active="red"] .line-red,
 .band[data-active="blue"] .line-blue,
 .band[data-active="yellow"] .line-yellow,
-.band[data-active="green"] .line-green { flex-grow: 5; opacity: 1; }
+.band[data-active="green"] .line-green,
+.band[data-active="purple"] .line-purple { flex-grow: 5; opacity: 1; }
 
 @media (prefers-reduced-motion: no-preference) {
   .band span {
@@ -772,7 +776,8 @@ main { flex: 1; width: 100%; }
 }
 
 .prose:empty::after {
-  content: "Write-up coming soon. The live demo and code are ready now.";
+  /* a page can swap the message, e.g. for a project with no live demo */
+  content: var(--soon, "Write-up coming soon. The live demo and code are ready now.");
   font-weight: 600;
   font-size: 1rem;
   color: var(--ink-2);
