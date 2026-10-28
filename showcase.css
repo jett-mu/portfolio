@@ -69,6 +69,30 @@
   overflow: visible;
 }
 
+/* ---------- THE REAL THING ---------- */
+
+/* a screenshot of the shipped app on a plate of the project's color */
+.sc-shot {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+.sc-shot img {
+  width: 100%;
+  height: auto;
+  padding: clamp(14px, 3vw, 44px);
+  border-radius: clamp(18px, 2vw, 28px);
+  background: var(--line);
+}
+
+.sc-shot figcaption {
+  max-width: 60ch;
+  margin-top: 16px;
+  font-size: 1rem;
+  color: var(--ink-2);
+}
+
 /* ---------- SECTIONS ---------- */
 
 
@@ -147,7 +171,7 @@ code { font-family: var(--font-code); font-size: 0.86em; }
 /* label / value rows */
 .readouts {
   margin: 0;
-  border-top: 1px solid var(--rule-strong);
+  border-top: 1px solid var(--rule-strong);  /* taste-skill-ignore: inside a data-ui mock panel */
 }
 
 .readouts div {
@@ -155,7 +179,7 @@ code { font-family: var(--font-code); font-size: 0.86em; }
   justify-content: space-between;
   gap: 16px;
   padding: 11px 0;
-  border-bottom: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);  /* taste-skill-ignore: inside a data-ui mock panel */
 }
 
 .readouts div:last-child { border-bottom: 0; }
@@ -169,7 +193,7 @@ code { font-family: var(--font-code); font-size: 0.86em; }
   margin: 0 0 18px;
 }
 
-.readout-grid div { padding: 10px 0; border-top: 1px solid var(--rule); }
+.readout-grid div { padding: 10px 0; border-top: 1px solid var(--rule); }  /* taste-skill-ignore: inside a data-ui mock panel */
 .readout-grid dt { font-weight: 600; font-size: 0.8125rem; color: var(--ink-3); }
 .readout-grid dd { margin: 2px 0 0; font-weight: 800; font-size: 1.25rem; letter-spacing: -0.01em; }
 
@@ -232,7 +256,7 @@ code { font-family: var(--font-code); font-size: 0.86em; }
   align-items: center;
   gap: 14px;
   padding: 12px 0;
-  border-top: 1px solid var(--rule);
+  border-top: 1px solid var(--rule);  /* taste-skill-ignore: inside a data-ui mock panel */
 }
 
 .route-badge {
@@ -387,7 +411,7 @@ code { font-family: var(--font-code); font-size: 0.86em; }
   border-radius: 50%;
   background: var(--line);
   border: 2.5px solid var(--surface);
-  box-shadow: 0 0 0 1.5px var(--line);
+  box-shadow: 0 0 0 1.5px var(--line);  /* taste-skill-ignore: inside a data-ui mock panel */
   transition: transform 350ms var(--ease-out-expo), opacity 300ms var(--ease-out);
 }
 
@@ -400,7 +424,7 @@ code { font-family: var(--font-code); font-size: 0.86em; }
   margin: -7px 0 0 -7px;
   border-radius: 50%;
   background: var(--ink);
-  box-shadow: 0 0 0 5px color-mix(in oklab, var(--ink) 18%, transparent);
+  box-shadow: 0 0 0 5px color-mix(in oklab, var(--ink) 18%, transparent);  /* taste-skill-ignore: inside a data-ui mock panel */
 }
 
 .map-credit {
@@ -423,7 +447,7 @@ code { font-family: var(--font-code); font-size: 0.86em; }
   align-items: center;
   gap: 12px;
   padding: 7px 0;
-  border-top: 1px solid var(--rule);
+  border-top: 1px solid var(--rule);  /* taste-skill-ignore: inside a data-ui mock panel */
   font-size: 0.9375rem;
   transition: opacity 300ms var(--ease-out);
 }
@@ -486,7 +510,7 @@ code { font-family: var(--font-code); font-size: 0.86em; }
   border-radius: 3px;
   background: var(--line);
   border: 1.5px solid var(--ink);
-  box-shadow: 0 2px 6px oklch(0 0 0 / 0.35);
+  box-shadow: 0 2px 6px oklch(0 0 0 / 0.35);  /* taste-skill-ignore: inside a data-ui mock panel */
   transform: translate(-50%, -50%) rotate(-70deg);
 }
 
@@ -558,7 +582,7 @@ code { font-family: var(--font-code); font-size: 0.86em; }
   height: 8px;
   border-radius: 4px;
   /* taste-skill-ignore: the CFD pressure colormap is the data */
-  background: linear-gradient(90deg, #0f1a8c, #0d8c73, #e0d020, #f28010, #d90f0f);
+  background: linear-gradient(90deg, #0f1a8c, #0d8c73, #e0d020, #f28010, #d90f0f);  /* taste-skill-ignore: inside a data-ui mock panel */
 }
 
 /* hero streamlines: dashes drift downstream */

@@ -33,7 +33,6 @@
 
   <section class="sc-hero" aria-labelledby="title">
     <div>
-      <a class="back-link" href="../projects.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"></path></svg>All projects</a>
       <h1 class="sc-title" id="title">GTFS <span class="thin">Parser</span></h1>
       <p class="sc-sub">Real transit data, parsed and served, down to the minute.</p>
       <div class="sc-actions">
@@ -66,13 +65,18 @@
     </svg>
   </section>
 
+  <figure class="sc-shot" data-reveal>
+    <img src="../assets/gtfs-parser-1200.webp" srcset="../assets/gtfs-parser-480.webp 480w, ../assets/gtfs-parser-1200.webp 1200w" sizes="(min-width: 1320px) 1200px, 92vw" width="1200" height="808" alt="GTFS Parser showing combined departures for John St and Bayview Av beside a street map" loading="lazy" decoding="async">
+    <figcaption>The web app: departures for two merged stops beside a live street map.</figcaption>
+  </figure>
+
   <section class="sc-section line-ink" aria-labelledby="what">
     <div class="sc-grid sc-grid--top">
       <div class="sc-copy">
-        <h2 class="sc-heading" id="what" data-reveal>The standard, parsed properly</h2>
-        <p data-reveal style="--d: 1"><a href="https://gtfs.org/documentation/schedule/reference/" target="_blank" rel="noopener">GTFS</a> (General Transit Feed Specification) is the standard transit agencies use worldwide to publish schedule and live vehicle data, the same format behind Google Maps and most trip planners. This project parses it directly. There's no database and no caching layer, just a C++ library scanning the raw <a href="https://github.com/google/transit" target="_blank" rel="noopener">GTFS Schedule</a> <code>.txt</code> tables and GTFS Realtime <code>.pb</code> protobuf feeds and answering queries straight off them.</p>
+        <h2 class="sc-heading" id="what">The standard, parsed properly</h2>
+        <p data-reveal><a href="https://gtfs.org/documentation/schedule/reference/" target="_blank" rel="noopener">GTFS</a> (General Transit Feed Specification) is the standard transit agencies use worldwide to publish schedule and live vehicle data, the same format behind Google Maps and most trip planners. This project parses it directly. There's no database and no caching layer, just a C++ library scanning the raw <a href="https://github.com/google/transit" target="_blank" rel="noopener">GTFS Schedule</a> <code>.txt</code> tables and GTFS Realtime <code>.pb</code> protobuf feeds and answering queries straight off them.</p>
       </div>
-      <div data-reveal style="--d: 2">
+      <div data-reveal style="--d: 1">
         <dl class="spec-list">
           <div><dt>Static GTFS</dt><dd><code>gtfs.hpp</code>: a single ~1,900-line C++17 header with zero external deps. Parses routes, stops, trips, calendars, shapes and fares straight from GTFS Schedule .txt files.</dd></div>
           <div><dt>GTFS-RT</dt><dd>C++ tools built on protobuf that decode GTFS Realtime .pb feeds (trip updates, vehicle positions, service alerts) into JSON.</dd></div>
@@ -92,10 +96,10 @@
   <section class="sc-section line-red" aria-labelledby="stop" data-scrub="stop">
     <div class="sc-grid">
       <div class="sc-copy">
-        <h2 class="sc-heading" id="stop" data-reveal><span class="dot" aria-hidden="true"></span>When's the next one?</h2>
-        <p data-reveal style="--d: 1"><strong>Stop lookup.</strong> Search a stop by name or ID, pick a date, see upcoming departures. Merge stops across an intersection into one combined list.</p>
+        <h2 class="sc-heading" id="stop"><span class="dot" aria-hidden="true"></span>When's the next one?</h2>
+        <p data-reveal><strong>Stop lookup.</strong> Search a stop by name or ID, pick a date, see upcoming departures. Merge stops across an intersection into one combined list.</p>
       </div>
-      <div class="panel" data-ui data-reveal style="--d: 2">
+      <div class="panel" data-ui data-reveal style="--d: 1">
         <div class="panel-head">
           <span class="panel-title">Main St &amp; 5th Ave</span>
           <span class="panel-sub">Stop STP-4471</span>
@@ -113,10 +117,10 @@
   <section class="sc-section line-blue" aria-labelledby="trip" data-scrub="trip">
     <div class="sc-grid">
       <div class="sc-copy">
-        <h2 class="sc-heading" id="trip" data-reveal><span class="dot" aria-hidden="true"></span>Follow the whole trip</h2>
-        <p data-reveal style="--d: 1"><strong>Trip &amp; route lookup.</strong> Look up a trip by ID, or search a route to see every trip running that day, stop by stop.</p>
+        <h2 class="sc-heading" id="trip"><span class="dot" aria-hidden="true"></span>Follow the whole trip</h2>
+        <p data-reveal><strong>Trip &amp; route lookup.</strong> Look up a trip by ID, or search a route to see every trip running that day, stop by stop.</p>
       </div>
-      <div class="panel" data-ui data-reveal style="--d: 2">
+      <div class="panel" data-ui data-reveal style="--d: 1">
         <div class="panel-head">
           <span class="trip-id">T-220148</span>
           <span class="panel-sub">Route 12 · Downtown</span>
@@ -135,10 +139,10 @@
   <section class="sc-section line-green" aria-labelledby="discover" data-scrub="discover">
     <div class="sc-grid">
       <div class="sc-copy">
-        <h2 class="sc-heading" id="discover" data-reveal><span class="dot" aria-hidden="true"></span>Find what's nearby</h2>
-        <p data-reveal style="--d: 1"><strong>Discover.</strong> Type coordinates or click the map to find the nearest stops around any point.</p>
+        <h2 class="sc-heading" id="discover"><span class="dot" aria-hidden="true"></span>Find what's nearby</h2>
+        <p data-reveal><strong>Discover.</strong> Type coordinates or click the map to find the nearest stops around any point.</p>
       </div>
-      <div class="panel" data-ui data-reveal style="--d: 2">
+      <div class="panel" data-ui data-reveal style="--d: 1">
         <p class="query">Query <strong>43.6426, −79.3871</strong> <span>radius 1.2 km</span></p>
         <div class="map discover-map">
           <div class="map-tiles" aria-hidden="true">
@@ -194,10 +198,10 @@
   <section class="sc-section line-yellow" aria-labelledby="live" data-scrub="live">
     <div class="sc-grid">
       <div class="sc-copy">
-        <h2 class="sc-heading" id="live" data-reveal><span class="dot" aria-hidden="true"></span>See it moving</h2>
-        <p data-reveal style="--d: 1"><strong>Live tracking.</strong> If a trip is running right now, watch its live position, speed and delay update in real time.</p>
+        <h2 class="sc-heading" id="live"><span class="dot" aria-hidden="true"></span>See it moving</h2>
+        <p data-reveal><strong>Live tracking.</strong> If a trip is running right now, watch its live position, speed and delay update in real time.</p>
       </div>
-      <div class="panel" data-ui data-reveal style="--d: 2">
+      <div class="panel" data-ui data-reveal style="--d: 1">
         <div class="map live-map">
           <div class="live-frame">
             <div class="map-tiles" aria-hidden="true">
@@ -254,9 +258,9 @@
   <section class="sc-section line-ink" aria-labelledby="built">
     <div class="sc-grid sc-grid--top">
       <div class="sc-copy">
-        <h2 class="sc-heading" id="built" data-reveal>Under the hood</h2>
+        <h2 class="sc-heading" id="built">Under the hood</h2>
       </div>
-      <dl class="spec-list" data-reveal style="--d: 2">
+      <dl class="spec-list" data-reveal style="--d: 1">
         <div class="line-red"><dt><span class="dot" aria-hidden="true"></span>Frontend</dt><dd>Map, search and live UI, talking to a small Flask server.</dd></div>
         <div class="line-blue"><dt><span class="dot" aria-hidden="true"></span>Flask</dt><dd>Relays requests only. It does not parse GTFS itself.</dd></div>
         <div class="line-yellow"><dt><span class="dot" aria-hidden="true"></span>C++</dt><dd>Compiled parsers read GTFS data and print the answer.</dd></div>

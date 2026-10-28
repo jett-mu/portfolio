@@ -35,19 +35,20 @@
 
 <main id="main" class="page-wrap writeup line-green">
 
-  <a class="back-link" href="../projects.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"></path></svg>All projects</a>
-
   <header class="writeup-head">
-    <h1 class="page-title"><span class="dot" aria-hidden="true"></span>Gatewright</h1>
-    <p class="page-lede">A digital logic sandbox. Drop in switches, clocks and gates, wire them together, and watch signals propagate.</p>
-    <ul class="tags">
+    <div>
+    <h1 class="page-title" data-reveal><span class="dot" aria-hidden="true"></span>Gatewright</h1>
+    <p class="page-lede" data-reveal style="--d: 1">A digital logic sandbox. Drop in switches, clocks and gates, wire them together, and watch signals propagate.</p>
+    <ul class="tags" data-reveal style="--d: 2">
       <li>Simulation</li>
       <li>Digital logic</li>
     </ul>
-    <div class="writeup-links">
+    <div class="writeup-links" data-reveal style="--d: 3">
       <a class="btn btn-fill" href="https://gatewright.jettm.dev" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.8v14.4a1 1 0 0 0 1.5.86l12-7.2a1 1 0 0 0 0-1.72l-12-7.2A1 1 0 0 0 7 4.8z"></path></svg>Live demo</a>
       <a class="btn" href="https://github.com/jett-mu/logicGated" target="_blank" rel="noopener">Code</a>
     </div>
+    </div>
+    <div class="writeup-shot shot-plate" data-reveal style="--d: 2"><img src="../assets/gatewright-1200.webp" srcset="../assets/gatewright-480.webp 480w, ../assets/gatewright-1200.webp 1200w" sizes="(min-width: 960px) 45vw, 92vw" width="1200" height="807" alt="Gatewright with two switches wired into XOR and AND gates" decoding="async"></div>
   </header>
 
   <!-- write-up goes inside .prose; while it's empty the page shows a "coming soon" note -->
@@ -62,6 +63,8 @@
     <a href="mailto:jett@jettm.dev">Email</a>
   </div>
 </footer>
+
+<script src="../site.js"></script>
 
 </body>
 </html>

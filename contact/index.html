@@ -33,31 +33,33 @@
   </nav>
 </header>
 
-<main id="main" class="page-wrap">
+<main id="main" class="page-wrap contact">
 
   <header class="page-head">
-    <h1 class="page-title">Get in touch</h1>
-    <p class="page-lede">Questions about a project, or just want to say hi? Email is the best way to reach me.</p>
+    <h1 class="page-title" data-reveal>Get in touch</h1>
+    <p class="page-lede" data-reveal style="--d: 1">Questions about a project, or just want to say hi? Email is the best way to reach me.</p>
   </header>
 
-  <ul class="contact-list">
-    <li>
-      <a class="contact-row line-red" href="mailto:jett@jettm.dev">
-        <span class="contact-label"><span class="dot" aria-hidden="true"></span>Email</span>
-        <span class="contact-value">jett@jettm.dev</span>
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
-      </a>
-    </li>
-    <li>
-      <a class="contact-row line-blue" href="https://github.com/jett-mu" target="_blank" rel="noopener">
-        <span class="contact-label"><span class="dot" aria-hidden="true"></span>GitHub</span>
-        <span class="contact-value">@jett-mu</span>
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"></path></svg>
-      </a>
-    </li>
-  </ul>
+  <div>
+    <ul class="contact-list">
+      <li data-reveal style="--d: 2">
+        <a class="contact-row line-red" href="mailto:jett@jettm.dev">
+          <span class="contact-value">jett@jettm.dev</span>
+          <span class="contact-label"><span class="dot" aria-hidden="true"></span>Email</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+        </a>
+      </li>
+      <li data-reveal style="--d: 3">
+        <a class="contact-row line-blue" href="https://github.com/jett-mu" target="_blank" rel="noopener">
+          <span class="contact-value">@jett-mu</span>
+          <span class="contact-label"><span class="dot" aria-hidden="true"></span>GitHub</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"></path></svg>
+        </a>
+      </li>
+    </ul>
 
-  <p class="contact-note">Also on the air as <strong>VA3NDE</strong>.</p>
+    <p class="contact-note" data-reveal style="--d: 4">Also on the air as <strong>VA3NDE</strong>.</p>
+  </div>
 
 </main>
 
@@ -68,6 +70,8 @@
     <a href="mailto:jett@jettm.dev">Email</a>
   </div>
 </footer>
+
+<script src="../site.js"></script>
 
 </body>
 </html>

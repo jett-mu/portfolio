@@ -33,7 +33,6 @@
 
   <section class="sc-hero" aria-labelledby="title">
     <div>
-      <a class="back-link" href="../projects.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"></path></svg>All projects</a>
       <h1 class="sc-title" id="title">Wind <span class="thin">Tunnel</span></h1>
       <p class="sc-sub">A real-time, GPU-accelerated 2D flow solver for testing NACA airfoils. Lift, drag and pressure are computed live in your browser.</p>
       <div class="sc-actions">
@@ -71,13 +70,18 @@
     </svg>
   </section>
 
+  <figure class="sc-shot" data-reveal>
+    <img src="../assets/wind-tunnel-1200.webp" srcset="../assets/wind-tunnel-480.webp 480w, ../assets/wind-tunnel-1200.webp 1200w" sizes="(min-width: 1320px) 1200px, 92vw" width="1200" height="806" alt="Wind Tunnel simulating flow around an airfoil, with live lift and drag readouts" loading="lazy" decoding="async">
+    <figcaption>The live tunnel: particle streamlines around the wing, with forces and coefficients on the right.</figcaption>
+  </figure>
+
   <section class="sc-section line-ink" aria-labelledby="what">
     <div class="sc-grid sc-grid--top">
       <div class="sc-copy">
-        <h2 class="sc-heading" id="what" data-reveal>A wind tunnel, in WebGL2</h2>
-        <p data-reveal style="--d: 1">No physics engine and no WebAssembly: the solver is a stack of hand-written GLSL fragment shaders, ping-ponging between framebuffers on the GPU. Every frame it advects velocity through the grid, diffuses it, adds forces, then projects it divergence-free with a Jacobi pressure solve. Vorticity confinement keeps the vortices shedding off the wing from simply diffusing away.</p>
+        <h2 class="sc-heading" id="what">A wind tunnel, in WebGL2</h2>
+        <p data-reveal>No physics engine and no WebAssembly: the solver is a stack of hand-written GLSL fragment shaders, ping-ponging between framebuffers on the GPU. Every frame it advects velocity through the grid, diffuses it, adds forces, then projects it divergence-free with a Jacobi pressure solve. Vorticity confinement keeps the vortices shedding off the wing from simply diffusing away.</p>
       </div>
-      <div data-reveal style="--d: 2">
+      <div data-reveal style="--d: 1">
         <dl class="spec-list">
           <div><dt>Solver</dt><dd>Stable-fluids incompressible Navier–Stokes, run entirely as GLSL shaders on a 512×256 texture grid, decoupled from display resolution.</dd></div>
           <div><dt>Airfoil</dt><dd>A NACA 4-digit generator rasterizes the wing into an obstacle mask each time you reshape it, drag its angle, or move a control surface.</dd></div>
@@ -97,10 +101,10 @@
   <section class="sc-section line-red" aria-labelledby="airfoil">
     <div class="sc-grid">
       <div class="sc-copy">
-        <h2 class="sc-heading" id="airfoil" data-reveal><span class="dot" aria-hidden="true"></span>Shape the wing</h2>
-        <p data-reveal style="--d: 1"><strong>NACA airfoil.</strong> Camber, thickness and chord sliders regenerate a NACA 4-digit airfoil live. Or skip the panel entirely and drag the wing in the tunnel to set its angle of attack by hand.</p>
+        <h2 class="sc-heading" id="airfoil"><span class="dot" aria-hidden="true"></span>Shape the wing</h2>
+        <p data-reveal><strong>NACA airfoil.</strong> Camber, thickness and chord sliders regenerate a NACA 4-digit airfoil live. Or skip the panel entirely and drag the wing in the tunnel to set its angle of attack by hand.</p>
       </div>
-      <div class="panel" data-ui data-reveal style="--d: 2">
+      <div class="panel" data-ui data-reveal style="--d: 1">
         <div class="panel-head">
           <span class="panel-title">NACA 2412</span>
           <span class="pill">AoA 6.0°</span>
@@ -124,10 +128,10 @@
   <section class="sc-section line-yellow" aria-labelledby="surfaces">
     <div class="sc-grid">
       <div class="sc-copy">
-        <h2 class="sc-heading" id="surfaces" data-reveal><span class="dot" aria-hidden="true"></span>Slats, flaps, ailerons</h2>
-        <p data-reveal style="--d: 1"><strong>Control surfaces.</strong> A leading-edge slat, a trailing-edge flap and an aileron on the outer tip each deflect independently, bending part of the wing's geometry and reshaping the flow around it in real time.</p>
+        <h2 class="sc-heading" id="surfaces"><span class="dot" aria-hidden="true"></span>Slats, flaps, ailerons</h2>
+        <p data-reveal><strong>Control surfaces.</strong> A leading-edge slat, a trailing-edge flap and an aileron on the outer tip each deflect independently, bending part of the wing's geometry and reshaping the flow around it in real time.</p>
       </div>
-      <div class="panel" data-ui data-reveal style="--d: 2">
+      <div class="panel" data-ui data-reveal style="--d: 1">
         <svg width="100%" height="150" viewBox="0 0 340 150" aria-hidden="true">
           <path class="ink-stroke" d="M 30 90 C 60 55, 120 42, 190 48"></path>
           <path class="ink-stroke" d="M 30 90 C 55 100, 90 106, 130 104"></path>
@@ -152,10 +156,10 @@
   <section class="sc-section line-blue" aria-labelledby="forces">
     <div class="sc-grid">
       <div class="sc-copy">
-        <h2 class="sc-heading" id="forces" data-reveal><span class="dot" aria-hidden="true"></span>Lift and drag, every frame</h2>
-        <p data-reveal style="--d: 1"><strong>Live forces.</strong> Surface pressure gets integrated into lift, drag, C<sub>l</sub>, C<sub>d</sub> and Reynolds number as the sim runs. A rolling graph tracks the coefficients over time, so a stall shows up as a visible break in the curve.</p>
+        <h2 class="sc-heading" id="forces"><span class="dot" aria-hidden="true"></span>Lift and drag, every frame</h2>
+        <p data-reveal><strong>Live forces.</strong> Surface pressure gets integrated into lift, drag, C<sub>l</sub>, C<sub>d</sub> and Reynolds number as the sim runs. A rolling graph tracks the coefficients over time, so a stall shows up as a visible break in the curve.</p>
       </div>
-      <div class="panel" data-ui data-reveal style="--d: 2">
+      <div class="panel" data-ui data-reveal style="--d: 1">
         <dl class="readout-grid">
           <div><dt>Lift (L)</dt><dd>842.6</dd></div>
           <div><dt>Drag (D)</dt><dd>96.3</dd></div>
@@ -180,10 +184,10 @@
   <section class="sc-section line-green" aria-labelledby="viz">
     <div class="sc-grid">
       <div class="sc-copy">
-        <h2 class="sc-heading" id="viz" data-reveal><span class="dot" aria-hidden="true"></span>Watch the air move</h2>
-        <p data-reveal style="--d: 1"><strong>Visualization.</strong> Up to 50,000 GPU particles trace streamlines through the tunnel and thin out where the flow separates. Switch to the false-color pressure field (the same blue-to-red map real CFD tools use) to watch high and low pressure zones form around the wing.</p>
+        <h2 class="sc-heading" id="viz"><span class="dot" aria-hidden="true"></span>Watch the air move</h2>
+        <p data-reveal><strong>Visualization.</strong> Up to 50,000 GPU particles trace streamlines through the tunnel and thin out where the flow separates. Switch to the false-color pressure field (the same blue-to-red map real CFD tools use) to watch high and low pressure zones form around the wing.</p>
       </div>
-      <div class="panel" data-ui data-reveal style="--d: 2">
+      <div class="panel" data-ui data-reveal style="--d: 1">
         <div class="field">
           <svg viewBox="0 0 340 210" preserveAspectRatio="none" aria-hidden="true">
             <defs>
@@ -212,9 +216,9 @@
   <section class="sc-section line-ink" aria-labelledby="built">
     <div class="sc-grid sc-grid--top">
       <div class="sc-copy">
-        <h2 class="sc-heading" id="built" data-reveal>Under the hood</h2>
+        <h2 class="sc-heading" id="built">Under the hood</h2>
       </div>
-      <dl class="spec-list" data-reveal style="--d: 2">
+      <dl class="spec-list" data-reveal style="--d: 1">
         <div class="line-red"><dt><span class="dot" aria-hidden="true"></span>Solver</dt><dd>Advect → diffuse → add forces → project, via an 80-iteration Jacobi pressure solve, with vorticity confinement layered on top to keep vortex shedding alive.</dd></div>
         <div class="line-yellow"><dt><span class="dot" aria-hidden="true"></span>Grid</dt><dd>A fixed 512×256 simulation texture, fully decoupled from canvas and display resolution.</dd></div>
         <div class="line-blue"><dt><span class="dot" aria-hidden="true"></span>Render</dt><dd>GLSL fragment shaders composite the pressure field, particle trails and obstacle mask into a single frame at full framerate.</dd></div>
