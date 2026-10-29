@@ -553,11 +553,15 @@ main { flex: 1; width: 100%; }
 }
 
 .work-item {
+  --pad-x: clamp(16px, 2vw, 28px);
+  --pad-y: clamp(20px, 2.4vw, 32px);
+  position: relative;
   display: grid;
   grid-template-columns: minmax(0, 1fr) clamp(150px, 15vw, 220px);
   align-items: center;
   gap: clamp(20px, 3vw, 40px);
-  padding: clamp(20px, 2.4vw, 32px) clamp(16px, 2vw, 28px);
+  /* the extra bottom room holds the row's trace */
+  padding: var(--pad-y) var(--pad-x) calc(var(--pad-y) + 18px);
   border-radius: var(--radius-lg);
   transition: background 350ms var(--ease-out);
 }
@@ -612,14 +616,68 @@ main { flex: 1; width: 100%; }
   height: auto;
   aspect-ratio: 16 / 10;
   object-fit: cover;
-  object-position: var(--shot-pos, left top);
+  object-position: var(--shot-x, left) top;
   border-radius: 11px;
   background: var(--surface);
+  transition: object-position 500ms var(--ease-out);
 }
 
-.work-item:hover .shot-plate {
+/* the plate lifts and the screenshot scrolls down a little, like the app
+   is in use */
+.work-item:hover .shot-plate,
+.work-item:focus-within .shot-plate {
   background: var(--line);
-  transform: rotate(-1.5deg) scale(1.03);
+  transform: translateY(-4px);
+}
+
+.work-item:hover .shot-plate img,
+.work-item:focus-within .shot-plate img { object-position: var(--shot-x, left) bottom; }
+
+/* each row draws a trace along its bottom edge on hover, shaped and timed
+   after what the project simulates: a train stopping at stations, flow
+   past a body, a ringing circuit, a clocked flip-flop, a ride over hills.
+   The inline script builds it to the row's real width and sets
+   data-trace; "in" reveals it left to right, "out" wipes it away in the
+   same direction, then it resets out of sight. */
+.trace {
+  position: absolute;
+  left: var(--pad-x);
+  bottom: 10px;
+  width: calc(100% - 2 * var(--pad-x));
+  height: 24px;
+  overflow: visible;
+  pointer-events: none;
+  color: var(--line);
+  clip-path: inset(-6px 100% -6px 0);
+}
+
+.work-item[data-trace="in"] .trace {
+  clip-path: inset(-6px 0 -6px 0);
+  transition: clip-path var(--trace-ms, 1000ms) var(--trace-ease, var(--ease-out));
+}
+
+.work-item[data-trace="out"] .trace {
+  clip-path: inset(-6px 0 -6px 100%);
+  transition: clip-path 200ms cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+.trace path {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.trace .trace-fill { fill: currentColor; stroke: none; opacity: 0.14; }
+.trace .trace-ref { stroke-width: 1; stroke-dasharray: 2 4; opacity: 0.45; }
+.trace circle { fill: var(--raised); stroke: currentColor; stroke-width: 2; }
+.line-red .trace path { stroke-width: 3; }
+.line-blue .trace path { stroke-width: 1.5; }
+.line-yellow .trace { filter: drop-shadow(0 0 2.5px currentColor); }
+
+@media (hover: none) {
+  .trace { display: none; }
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -1039,7 +1097,7 @@ main { flex: 1; width: 100%; }
   .work-item { grid-template-columns: minmax(0, 1fr); }
   .work-item .shot-plate { order: -1; max-width: 420px; }
   .work-head { padding: 0; }
-  .work-item { padding-inline: 0; }
+  .work-item { --pad-x: 0px; }
   .work-item:hover, .work-item:focus-within { background: none; }
 }
 
