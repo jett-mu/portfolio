@@ -92,7 +92,7 @@
           <p class="work-desc">A C++ library that reads transit schedules and live GTFS feeds, plus a web app for departures, trips and bus positions.</p>
           <p class="work-meta">C++ · Python · Transit data</p>
           <div class="work-links">
-            <a class="btn btn-sm btn-fill" href="https://gtfs.jettm.dev" target="_blank" rel="noopener">Live demo</a>
+            <a class="btn btn-sm btn-fill" href="https://gtfs.jettm.dev" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.8v14.4a1 1 0 0 0 1.5.86l12-7.2a1 1 0 0 0 0-1.72l-12-7.2A1 1 0 0 0 7 4.8z"></path></svg>Live demo</a>
             <a class="btn btn-sm" href="https://github.com/jett-mu/GTFS-Parser" target="_blank" rel="noopener">Code</a>
           </div>
         </div>
@@ -105,7 +105,7 @@
           <p class="work-desc">A GPU flow solver for NACA airfoils. Reshape the wing and watch lift, drag and pressure update live in the browser.</p>
           <p class="work-meta">TypeScript · WebGL2 · Aerodynamics</p>
           <div class="work-links">
-            <a class="btn btn-sm btn-fill" href="https://windtunnel.jettm.dev" target="_blank" rel="noopener">Live demo</a>
+            <a class="btn btn-sm btn-fill" href="https://windtunnel.jettm.dev" target="_blank" rel="noopener">Open now<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14 21 3"></path></svg></a>
             <a class="btn btn-sm" href="https://github.com/jett-mu/windTunnel" target="_blank" rel="noopener">Code</a>
           </div>
         </div>
@@ -118,7 +118,7 @@
           <p class="work-desc">A circuit simulator. Wire up parts, run it, and probe voltages on a built-in oscilloscope.</p>
           <p class="work-meta">Simulation · Electronics</p>
           <div class="work-links">
-            <a class="btn btn-sm btn-fill" href="https://circuitwright.jettm.dev" target="_blank" rel="noopener">Live demo</a>
+            <a class="btn btn-sm btn-fill" href="https://circuitwright.jettm.dev" target="_blank" rel="noopener">Open now<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14 21 3"></path></svg></a>
             <a class="btn btn-sm" href="https://github.com/jett-mu/circuitWright" target="_blank" rel="noopener">Code</a>
           </div>
         </div>
@@ -131,7 +131,7 @@
           <p class="work-desc">A digital logic sandbox. Drop in switches, clocks and gates, wire them together, and watch signals propagate.</p>
           <p class="work-meta">Simulation · Digital logic</p>
           <div class="work-links">
-            <a class="btn btn-sm btn-fill" href="https://gatewright.jettm.dev" target="_blank" rel="noopener">Live demo</a>
+            <a class="btn btn-sm btn-fill" href="https://gatewright.jettm.dev" target="_blank" rel="noopener">Open now<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14 21 3"></path></svg></a>
             <a class="btn btn-sm" href="https://github.com/jett-mu/logicGated" target="_blank" rel="noopener">Code</a>
           </div>
         </div>
@@ -144,7 +144,7 @@
           <p class="work-desc">A bike route planner for York Region. It suggests up to six routes between two points and estimates the time and energy each one takes, from bike lanes, elevation and live wind.</p>
           <p class="work-meta">C++ · Python · Cycling</p>
           <div class="work-links">
-            <a class="btn btn-sm btn-fill" href="https://github.com/jett-mu/bikeTool" target="_blank" rel="noopener">Code</a>
+            <a class="btn btn-sm btn-fill" href="https://github.com/jett-mu/bikeTool" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m8 6-6 6 6 6M16 6l6 6-6 6M14 4l-4 16"></path></svg>Code</a>
           </div>
         </div>
         <div class="shot-plate"><img src="assets/biketool-480.webp" srcset="assets/biketool-480.webp 480w, assets/biketool-1200.webp 1200w" sizes="(max-width: 600px) 92vw, 220px" width="480" height="322" alt="" decoding="async"></div>
@@ -293,14 +293,14 @@
     },
 
     // a timing diagram: a clock, and a toggle flip-flop's Q that flips on
-    // every rising edge a few pixels late (propagation delay)
+    // every rising edge of the clock
     green(w) {
-      const n = Math.max(4, Math.round(w / 44)), P = w / n, d = 3;
+      const n = Math.max(4, Math.round(w / 44)), P = w / n;
       let clk = 'M0 9', q = 'M0 21', high = false;
       for (let i = 0; i < n; i++) {
         const rise = i * P + P / 2;
         clk += ` H${rise.toFixed(1)} V2 H${((i + 1) * P).toFixed(1)} V9`;
-        q += ` H${(rise + d).toFixed(1)} V${high ? 21 : 14}`;
+        q += ` H${rise.toFixed(1)} V${high ? 21 : 14}`;
         high = !high;
       }
       q += ` H${w}`;
