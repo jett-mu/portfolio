@@ -654,43 +654,68 @@ main { flex: 1; width: 100%; }
 .feature:nth-child(even) { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); }
 .feature:nth-child(even) .feature-media { order: 2; }
 
+/* a soft clay slab in the project's color, lit from the top left and
+   puffed up by inset shading. The slab is painted by ::before so the
+   marks in ::after can sit between it and the screenshot. */
 .feature-media {
+  --pad: clamp(14px, 1.8vw, 24px);
+  --clay-radius: clamp(26px, 2.8vw, 38px);
+  --clay-light: color-mix(in oklab, white 42%, transparent);
+  --clay-dark: color-mix(in oklab, black 26%, transparent);
   position: relative;
-  padding: clamp(18px, 3.4vw, 48px);
-  border-radius: clamp(18px, 2vw, 28px);
-  background: var(--line);
-  overflow: hidden;
+  padding: var(--pad);
+  isolation: isolate;
 }
 
-/* a faint ring echoing the color dot, sitting behind the screenshot */
 .feature-media::before {
   content: "";
   position: absolute;
-  width: 70%;
-  aspect-ratio: 1;
-  right: -18%;
-  bottom: -38%;
-  border-radius: 50%;
-  border: clamp(18px, 3vw, 40px) solid color-mix(in oklab, var(--on-line) 14%, transparent);
-  transition: transform 900ms var(--ease-out-expo);
+  inset: 0;
+  z-index: -1;
+  border-radius: var(--clay-radius);
+  background:
+    radial-gradient(120% 90% at 18% 0%, color-mix(in oklab, white 16%, transparent), transparent 60%),
+    var(--line);
+  box-shadow:
+    inset 0 2px 1px color-mix(in oklab, white 30%, transparent),
+    inset 10px 12px 22px -10px var(--clay-light),
+    inset -12px -14px 26px -10px var(--clay-dark),
+    0 16px 28px -18px color-mix(in oklab, black 40%, transparent);
 }
 
-.feature:nth-child(even) .feature-media::before { right: auto; left: -18%; }
+/* big soft circles behind the screenshot; only their curved edges show
+   around it. Mirrored on alternate cards */
+.feature-media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: var(--clay-radius);
+  background: color-mix(in oklab, var(--on-line) 32%, transparent);
+  -webkit-mask: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 640 416' preserveAspectRatio='none'><circle cx='560' cy='-40' r='230' fill-opacity='.5'/><circle cx='60' cy='470' r='190' fill-opacity='.3'/><circle cx='430' cy='440' r='72' fill-opacity='.6'/></svg>") 0 0 / 100% 100%;
+          mask: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 640 416' preserveAspectRatio='none'><circle cx='560' cy='-40' r='230' fill-opacity='.5'/><circle cx='60' cy='470' r='190' fill-opacity='.3'/><circle cx='430' cy='440' r='72' fill-opacity='.6'/></svg>") 0 0 / 100% 100%;
+}
+
+.feature:nth-child(even) .feature-media::after { transform: scaleX(-1); }
 
 .feature-media img {
   position: relative;
+  display: block;
   width: 100%;
   height: auto;
   aspect-ratio: 16 / 10;
   object-fit: cover;
   object-position: var(--shot-pos, left top);
-  border-radius: 10px;
+  border-radius: calc(var(--clay-radius) - var(--pad));
   background: var(--surface);
+  box-shadow:
+    0 0 0 1px color-mix(in oklab, black 12%, transparent),
+    0 14px 28px -14px color-mix(in oklab, black 45%, transparent);
   transition: transform 700ms var(--ease-out-expo);
 }
 
-.feature:hover .feature-media img { transform: translateY(-6px) scale(1.012); }
-.feature:hover .feature-media::before { transform: scale(1.08) rotate(8deg); }
+.feature:hover .feature-media { transform: translateY(-4px); }
+.feature:hover .feature-media img { transform: scale(1.008); }
 
 .feature-title {
   display: flex;
